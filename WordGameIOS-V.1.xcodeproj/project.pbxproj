@@ -14,6 +14,10 @@
 		5C8A861E295FA66C004AC41E /* WordGameIOS_V_1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A861D295FA66C004AC41E /* WordGameIOS_V_1Tests.swift */; };
 		5C8A8628295FA66C004AC41E /* WordGameIOS_V_1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A8627295FA66C004AC41E /* WordGameIOS_V_1UITests.swift */; };
 		5C8A862A295FA66C004AC41E /* WordGameIOS_V_1UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A8629295FA66C004AC41E /* WordGameIOS_V_1UITestsLaunchTests.swift */; };
+		5C9E9D02296C3F850072ABE9 /* WordList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9E9D01296C3F850072ABE9 /* WordList.swift */; };
+		5C9E9D04296C3F940072ABE9 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9E9D03296C3F940072ABE9 /* Word.swift */; };
+		5C9E9D8329783C7E0072ABE9 /* TypedLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9E9D8229783C7E0072ABE9 /* TypedLetter.swift */; };
+		5C9E9D8729783D670072ABE9 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9E9D8629783D670072ABE9 /* GameView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,10 @@
 		5C8A8623295FA66C004AC41E /* WordGameIOS-V.1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "WordGameIOS-V.1UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C8A8627295FA66C004AC41E /* WordGameIOS_V_1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordGameIOS_V_1UITests.swift; sourceTree = "<group>"; };
 		5C8A8629295FA66C004AC41E /* WordGameIOS_V_1UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordGameIOS_V_1UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		5C9E9D01296C3F850072ABE9 /* WordList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordList.swift; sourceTree = "<group>"; };
+		5C9E9D03296C3F940072ABE9 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
+		5C9E9D8229783C7E0072ABE9 /* TypedLetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypedLetter.swift; sourceTree = "<group>"; };
+		5C9E9D8629783D670072ABE9 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +103,9 @@
 			isa = PBXGroup;
 			children = (
 				5C8A860C295FA669004AC41E /* WordGameIOS_V_1App.swift */,
+				5C9E9D8829783E2C0072ABE9 /* ViewModel */,
+				5C9E9D8529783D520072ABE9 /* View */,
+				5C9E9D8429783D0E0072ABE9 /* Model */,
 				5C8A860E295FA669004AC41E /* ContentView.swift */,
 				5C8A8610295FA66B004AC41E /* Assets.xcassets */,
 				5C8A8612295FA66B004AC41E /* Preview Content */,
@@ -125,6 +136,31 @@
 				5C8A8629295FA66C004AC41E /* WordGameIOS_V_1UITestsLaunchTests.swift */,
 			);
 			path = "WordGameIOS-V.1UITests";
+			sourceTree = "<group>";
+		};
+		5C9E9D8429783D0E0072ABE9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5C9E9D01296C3F850072ABE9 /* WordList.swift */,
+				5C9E9D03296C3F940072ABE9 /* Word.swift */,
+				5C9E9D8229783C7E0072ABE9 /* TypedLetter.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5C9E9D8529783D520072ABE9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5C9E9D8629783D670072ABE9 /* GameView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5C9E9D8829783E2C0072ABE9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,7 +294,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C8A860F295FA669004AC41E /* ContentView.swift in Sources */,
+				5C9E9D04296C3F940072ABE9 /* Word.swift in Sources */,
 				5C8A860D295FA669004AC41E /* WordGameIOS_V_1App.swift in Sources */,
+				5C9E9D8329783C7E0072ABE9 /* TypedLetter.swift in Sources */,
+				5C9E9D02296C3F850072ABE9 /* WordList.swift in Sources */,
+				5C9E9D8729783D670072ABE9 /* GameView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

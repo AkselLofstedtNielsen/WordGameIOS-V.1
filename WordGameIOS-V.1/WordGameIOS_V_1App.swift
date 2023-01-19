@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct WordGameIOS_V_1App: App {
+    @StateObject var wordList = WordList()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(wordList)
         }
     }
 }
