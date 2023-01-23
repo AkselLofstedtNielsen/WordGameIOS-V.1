@@ -7,27 +7,35 @@
 
 import Foundation
 
+//firebase wordlist
+
 class WordList : ObservableObject {
-    @Published var list = [Word]()
+    @Published var words : [Word] = [Word(word: "Aksel"),Word(word: "Hejsan"),Word(word: "Katt"),Word(word: "Hund")]
+    @Published var typed : [Word] = []
+    @Published var currentWord : String = ""
+    @Published var textFieldWord : String = ""
+//    @Published var letter : Letter
     
     init(){
-        addData()
+        
+        //TODO
+        //ladda ord från firebase till words
+        //sätt första ordet till letter
+      
     }
-    
-    func addData(){
-        list.append(Word(word: "Hejsan"))
-        list.append(Word(word: "Aksel"))
-        list.append(Word(word: "Sarah"))
-        list.append(Word(word: "Hejdå"))
-        list.append(Word(word: "Frodo"))
-    }
+    //TODO func för,
+    //Backspace, space/enter, varje keypress
+   
     func getRandomWord () -> Word?{
-        list.shuffle()
-        if let word = list.first{
+        words.shuffle()
+        if let word = words.first{
             return word
         }
         
         return nil
         
+    }
+    func addToTyped(inputWord: Word){
+        typed.append(inputWord)
     }
 }

@@ -7,6 +7,7 @@
 
 import Foundation
 
+//a word in the firebase wordlist
 struct Word : Identifiable {
     var id = UUID()
     var word : String

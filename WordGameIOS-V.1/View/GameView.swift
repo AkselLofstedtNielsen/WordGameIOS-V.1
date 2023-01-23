@@ -9,27 +9,59 @@ import SwiftUI
 
 struct GameView: View {
     
+    @State var listOfWords = WordList()
     @State var inputText : String = ""
+    @State var inputWord : String = ""
+    @State var correct = false
+    @State var typeHereAnimate = true
     
     var body: some View {
-        VStack{
-            Spacer()
-            WordView()
+        ZStack{
             VStack{
-                typeHereAnimation()
-                textFieldView(inputText: $inputText)
-            
+                WordView(listOfWords: $listOfWords, word: $inputWord)
+                VStack{
+                    if typeHereAnimate{
+                        typeHereAnimation()
+                    }
+                    
+                    textFieldView(inputText: $inputText)
+                        .onSubmit {
+                            typeHereAnimate = false
+                        }
+                    
+                    Button(action:{
+                        checkCorrectWord(word: inputWord, inputText: inputText)
+                    }){
+                        Text("Rätta")
+                    }
+                    .onAppear(){
+                        
+                    }
+                 
+                    
+                }
             }
-            Spacer()
-            
             
         }
+       
+        
+    }
+    func checkCorrectWord (word: String, inputText: String){
+        if inputText == word{
+            listOfWords.addToTyped(inputWord: Word(word: word))
+            for words in listOfWords.typed{
+                print("\(words.word)")
+            }
+        }else{
+            print("Fel")
+        }
+        
     }
 }
 struct WordView: View {
-    @State var i = 0
-    @State var listOfWords = WordList()
-    @State var word : String = ""
+    @Binding var listOfWords : WordList
+    @Binding var word : String
+    @State var animate : Bool = false
     
     var body: some View {
         VStack{
@@ -49,6 +81,21 @@ struct WordView: View {
     
 
 }
+struct textFieldView: View{
+    @Binding var inputText : String
+
+    var body: some View{
+        VStack{
+            TextField("", text: $inputText)
+                .frame(height: 75).border(.red)
+                .textFieldStyle(.automatic)
+                .multilineTextAlignment(.center)
+                
+              
+            
+        }
+    }
+}
 struct typeHereAnimation: View{
     @State var bouncing = false
     
@@ -63,21 +110,6 @@ struct typeHereAnimation: View{
             .onAppear(){
                 self.bouncing.toggle()
             }
-        }
-    }
-}
-struct textFieldView: View{
-    @Binding var inputText : String
-    
-    var body: some View{
-        VStack{
-            TextField("", text: $inputText)
-                .frame(height: 75).border(.red)
-                .textFieldStyle(.automatic)
-                .multilineTextAlignment(.center)
-                
-              
-            
         }
     }
 }
