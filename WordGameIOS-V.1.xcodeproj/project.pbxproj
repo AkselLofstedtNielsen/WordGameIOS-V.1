@@ -15,10 +15,7 @@
 		5C8A8628295FA66C004AC41E /* WordGameIOS_V_1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A8627295FA66C004AC41E /* WordGameIOS_V_1UITests.swift */; };
 		5C8A862A295FA66C004AC41E /* WordGameIOS_V_1UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8A8629295FA66C004AC41E /* WordGameIOS_V_1UITestsLaunchTests.swift */; };
 		5C8B58CF297FF3B10021A556 /* TypingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8B58CE297FF3B10021A556 /* TypingView.swift */; };
-		5C8B58D1297FF3CE0021A556 /* WordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8B58D0297FF3CE0021A556 /* WordView.swift */; };
-		5C8B58D3297FF3EC0021A556 /* WordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8B58D2297FF3EC0021A556 /* WordViewModel.swift */; };
 		5C8B58D5297FF3F70021A556 /* TypingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8B58D4297FF3F70021A556 /* TypingViewModel.swift */; };
-		5C8B58D7297FFCAC0021A556 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8B58D6297FFCAC0021A556 /* FirebaseManager.swift */; };
 		5C8B58D9297FFCE30021A556 /* WordList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8B58D8297FFCE30021A556 /* WordList.swift */; };
 		5C9E9D04296C3F940072ABE9 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9E9D03296C3F940072ABE9 /* Word.swift */; };
 /* End PBXBuildFile section */
@@ -52,10 +49,7 @@
 		5C8A8627295FA66C004AC41E /* WordGameIOS_V_1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordGameIOS_V_1UITests.swift; sourceTree = "<group>"; };
 		5C8A8629295FA66C004AC41E /* WordGameIOS_V_1UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordGameIOS_V_1UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5C8B58CE297FF3B10021A556 /* TypingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypingView.swift; sourceTree = "<group>"; };
-		5C8B58D0297FF3CE0021A556 /* WordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordView.swift; sourceTree = "<group>"; };
-		5C8B58D2297FF3EC0021A556 /* WordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordViewModel.swift; sourceTree = "<group>"; };
 		5C8B58D4297FF3F70021A556 /* TypingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypingViewModel.swift; sourceTree = "<group>"; };
-		5C8B58D6297FFCAC0021A556 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		5C8B58D8297FFCE30021A556 /* WordList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordList.swift; sourceTree = "<group>"; };
 		5C9E9D03296C3F940072ABE9 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,7 +143,6 @@
 			children = (
 				5C9E9D03296C3F940072ABE9 /* Word.swift */,
 				5C8B58D8297FFCE30021A556 /* WordList.swift */,
-				5C8B58D6297FFCAC0021A556 /* FirebaseManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -157,7 +150,6 @@
 		5C9E9D8529783D520072ABE9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5C8B58D0297FF3CE0021A556 /* WordView.swift */,
 				5C8B58CE297FF3B10021A556 /* TypingView.swift */,
 			);
 			path = View;
@@ -166,7 +158,6 @@
 		5C9E9D8829783E2C0072ABE9 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				5C8B58D2297FF3EC0021A556 /* WordViewModel.swift */,
 				5C8B58D4297FF3F70021A556 /* TypingViewModel.swift */,
 			);
 			path = ViewModel;
@@ -302,10 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C8B58D3297FF3EC0021A556 /* WordViewModel.swift in Sources */,
-				5C8B58D1297FF3CE0021A556 /* WordView.swift in Sources */,
 				5C8A860F295FA669004AC41E /* ContentView.swift in Sources */,
-				5C8B58D7297FFCAC0021A556 /* FirebaseManager.swift in Sources */,
 				5C9E9D04296C3F940072ABE9 /* Word.swift in Sources */,
 				5C8A860D295FA669004AC41E /* WordGameIOS_V_1App.swift in Sources */,
 				5C8B58CF297FF3B10021A556 /* TypingView.swift in Sources */,

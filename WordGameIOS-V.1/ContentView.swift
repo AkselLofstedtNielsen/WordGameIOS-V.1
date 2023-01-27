@@ -14,8 +14,6 @@ struct ContentView: View {
     
     var body: some View {
         VStack{
-            WordView()
-            Spacer()
             TypingView()
         }
     }

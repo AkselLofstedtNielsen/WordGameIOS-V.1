@@ -9,7 +9,12 @@ import Foundation
 
 //Wordlist = fylls av firebase, fyller resten av projekten.
 class WordList : ObservableObject{
-    @Published var words : [Word] = [Word(word: "Aksel"),Word(word: "Hejsan"),Word(word: "Katt"),Word(word: "Hund")]
+    @Published var words : [Word] = [Word(word: "AKSEL"),
+                                     Word(word: "HEJSAN"),
+                                     Word(word: "KATT"),
+                                     Word(word: "TIGER"),
+                                     Word(word:"ELEFANT")]
+    
     @Published var typed : [Word] = []
     
 
