@@ -10,6 +10,15 @@ import SwiftUI
 struct TypingView: View {
     //View for the userinput/typing
     
+    //Timer
+    let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
+    @State var timePlayed = 0.0
+    @State var isTimerRunning = false
+    
+    @State var gameOver = false
+    @State var WPS : Double = 0.0
+    
+    
     @EnvironmentObject var list : WordList
     @State private var userText = ""
     @State var wordFound = false
@@ -23,11 +32,25 @@ struct TypingView: View {
     
     var body: some View {
         VStack{
-            Text("Typed:")
-                .bold()
+            
+            if !gameOver{
+                Text("Time: \(timePlayed)")
+                    .bold()
+                    .onReceive(timer){ _ in
+                        if self.isTimerRunning{
+                            self.timePlayed += 0.1
+                        }
+                        
+                    }
+            }else{
+                Text("\(WPS) Words per second")
+            }
+
 
             ForEach (list.typed){ word in
                 Text(word.word)
+                    .bold()
+                    .foregroundColor(.green)
             }
             Spacer()
             Text("Write the words:")
@@ -37,8 +60,20 @@ struct TypingView: View {
             }
             Spacer()
            
+            if gameOver{
+                Button(action:{
+                    restartGame()
+                }) {
+                    Text("Play again")
+                }
+            }
+            Spacer()
             typeHereAnimation()
-            TextField("",text: self.$userText)
+            
+            TextField("", text: $userText)
+                .onTapGesture {
+                    isTimerRunning.toggle()
+                }
                 .frame(height: 75).border(.red)
                 .textFieldStyle(.automatic)
                 .multilineTextAlignment(.center)
@@ -57,6 +92,7 @@ struct TypingView: View {
         }
     }
     func testing(letter: Character){
+
         //för varje ord i listan testar den ifall första bokstaven har blivit skriven.
         //om den har blivit skriven så fortsätt med det ordet
         if wordFound{
@@ -76,6 +112,13 @@ struct TypingView: View {
                     resetWord()
                     list.addToTyped(inputWord: list.words.first(where: {$0.id == id})!)
                     list.words.removeAll(where: {$0.id == id})
+                    
+                    if list.words.isEmpty{
+                        WPS = getWPS()
+                        stopGame()
+                        
+                        
+                    }
                     
                 }else{
                     print("rätt")
@@ -100,21 +143,44 @@ struct TypingView: View {
                     print("ne")
                 }
             }
-        }//func testing
+        }
 
         func resetWord(){
             letterPosition = 1
             userText = ""
             wordFound = false
         }//func resetWord
+        
+        func getWPS () -> Double{
+            let wps = Double(list.typed.count) / timePlayed
+            return wps
+            
+        }
+        func stopGame(){
+            timePlayed = 0
+            isTimerRunning = false
+            gameOver = true
+        }
+
 
         
         
+        
+    }//-func testing
+    func restartGame(){
+        for word in list.typed{
+            list.words.append(word)
+        }
+        
+        list.typed.removeAll()
+        
+        gameOver = false
+        isTimerRunning = true
+        timePlayed = 0.0
         
     }
 
-
-}//Struct typingView
+}//-Struct typingView
 
 struct HighlightedText: View {
     //Simple struct for the highlighted letters in the words, only problem is it highlights all of the matching letters in all of the words to begin with.
