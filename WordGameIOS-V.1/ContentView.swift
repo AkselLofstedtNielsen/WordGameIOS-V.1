@@ -14,7 +14,7 @@ struct ContentView: View {
     
     var body: some View {
         VStack{
-            TypingView()
+            TypingView(typingVM: TypingViewModel())
         }
     }
     
