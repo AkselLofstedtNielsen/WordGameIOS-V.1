@@ -68,7 +68,11 @@ struct TypingView: View {
                 }
             }
             Spacer()
-            typeHereAnimation()
+            
+            if !isTimerRunning{
+                typeHereAnimation()
+            }
+            
             
             TextField("", text: $userText)
                 .onTapGesture {
@@ -183,7 +187,7 @@ struct TypingView: View {
 }//-Struct typingView
 
 struct HighlightedText: View {
-    //Simple struct for the highlighted letters in the words, only problem is it highlights all of the matching letters in all of the words to begin with.
+    //Simple struct for the highlighted letters in the words, FIX- All letters that match are highlighted and not following the current word
     let text: String
     let matching: String
 

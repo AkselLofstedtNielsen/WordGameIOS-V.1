@@ -11,9 +11,6 @@ import Foundation
 
 class TypingViewModel : ObservableObject {
     
-    @Published var currentWord : String = ""
-    @Published var textFieldWord : String = ""
-//    @Published var letter : Letter
     
     init(){
         
