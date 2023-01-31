@@ -14,7 +14,8 @@ struct ContentView: View {
     
     var body: some View {
         VStack{
-            TypingView(typingVM: TypingViewModel())
+            FallingWord(word: "hej")
+//            TypingView(typingVM: TypingViewModel())
         }
     }
     
