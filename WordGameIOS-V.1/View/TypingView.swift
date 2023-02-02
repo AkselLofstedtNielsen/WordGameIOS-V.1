@@ -9,7 +9,6 @@ import SwiftUI
 
     struct TypingView: View {
         @ObservedObject var typingVM: TypingViewModel
-//        @State var timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
         
         var body: some View {
             VStack{
