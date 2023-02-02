@@ -15,7 +15,7 @@ struct FallingWords: View {
     
     @State var gameSpeed : Double = 0.01
 
-    var gameTimer2 : Timer
+//    var gameTimer2 : Timer
 //    var timer : Timer
     
 //    init(typingVM: TypingViewModel) {
@@ -24,32 +24,40 @@ struct FallingWords: View {
 //        timer = timer()
 //
 //    }
+  
     
     var body: some View {
         ForEach(typingVM.list.words){word in
-            Text(word.word)
+            Text("\(word.yPos)")
                 .offset(x: word.xPos, y: word.yPos)
             }
+        .onAppear(perform: {
+            gameTimer()
+            timer()
+        })
     }
 
-    func gameTimer() -> Timer{
+    func gameTimer(){
+        print("Gametimer")
         let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true){_ in
+            print("43")
             game += 1
             if game % 5 == 0{
                 typingVM.list.addRandomWord()
             }
         }
-        return timer
     }
-//    func timer() -> Timer{
-//        return Timer.scheduledTimer(withTimeInterval: gameSpeed, repeats: true){_ in
-//            for word in typingVM.list.words{
-//                word.yPos += 0.1
-//            }
-//
-//
-//        }
-//    }
+    func timer(){
+        print("timer")
+        Timer.scheduledTimer(withTimeInterval: gameSpeed, repeats: true){_ in
+            print("53")
+            for word in typingVM.list.words{
+                word.yPos += 0.1
+            }
+
+
+        }
+    }
 }
 
 //struct WordView : View {
@@ -60,8 +68,8 @@ struct FallingWords: View {
 //        Text(word.word)
 //    }
 //}
-//struct FallingWords_Previews: PreviewProvider {
-//    static var previews: some View {
-//        FallingWords()
-//    }
-//}
+struct FallingWords_Previews: PreviewProvider {
+    static var previews: some View {
+        FallingWords()
+    }
+}

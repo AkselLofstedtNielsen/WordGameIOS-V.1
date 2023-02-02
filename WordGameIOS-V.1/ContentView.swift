@@ -19,11 +19,11 @@ struct ContentView: View {
     var body: some View {
         ZStack{
             VStack{
-                TopBarView(typingVM: vm)
+//                TopBarView(typingVM: vm)
                 Spacer()
-                FallingWords(typingVM: vm)
+//                FallingWords(typingVM: vm)
                 Spacer()
-                TypingView(typingVM: vm)
+//                TypingView(typingVM: vm)
             }
             
         }

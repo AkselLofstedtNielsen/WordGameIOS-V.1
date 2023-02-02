@@ -13,7 +13,7 @@ struct WordGameIOS_V_1App: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            FallingWords()
 //                .environmentObject(typingVM)
         }
     }
