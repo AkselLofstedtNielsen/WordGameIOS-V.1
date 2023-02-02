@@ -11,10 +11,11 @@ import Foundation
 
 class TypingViewModel : ObservableObject {
     
+    //spelet ska inte sluta när words är tom utan när gameword är tom
 
     @Published var timePlayed = 0.0
     @Published var isTimerRunning = false
-    @Published var gameOver = false
+    @Published var gameOver = true
     @Published var WPS : Double = 0.0
     
     @Published var userText = ""
@@ -22,7 +23,7 @@ class TypingViewModel : ObservableObject {
     @Published var id = UUID()
     @Published var letterPosition = 1
     
-    let list = WordList()
+    @Published var list = WordList()
     
     
     
@@ -41,7 +42,7 @@ class TypingViewModel : ObservableObject {
                     list.addToTyped(inputWord: list.words.first(where: {$0.id == id})!)
                     list.words.removeAll(where: {$0.id == id})
                     
-                    if list.words.isEmpty{
+                    if list.gameWords.isEmpty && list.words.isEmpty{
                         WPS = getWPS()
                         stopGame()
                     }

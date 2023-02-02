@@ -19,7 +19,8 @@
 		5C8B58D9297FFCE30021A556 /* WordList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8B58D8297FFCE30021A556 /* WordList.swift */; };
 		5C97456C2988136000EBE317 /* TypeHereAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C97456B2988136000EBE317 /* TypeHereAnimation.swift */; };
 		5C97456E2988139A00EBE317 /* HighlightedLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C97456D2988139A00EBE317 /* HighlightedLetter.swift */; };
-		5C9745702989100300EBE317 /* FallingWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C97456F2989100300EBE317 /* FallingWord.swift */; };
+		5C974574298AB75000EBE317 /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C974573298AB75000EBE317 /* TopBarView.swift */; };
+		5C9745B5298BCCD800EBE317 /* FallingWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9745B4298BCCD800EBE317 /* FallingWords.swift */; };
 		5C9E9D04296C3F940072ABE9 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9E9D03296C3F940072ABE9 /* Word.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,7 +57,8 @@
 		5C8B58D8297FFCE30021A556 /* WordList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordList.swift; sourceTree = "<group>"; };
 		5C97456B2988136000EBE317 /* TypeHereAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeHereAnimation.swift; sourceTree = "<group>"; };
 		5C97456D2988139A00EBE317 /* HighlightedLetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightedLetter.swift; sourceTree = "<group>"; };
-		5C97456F2989100300EBE317 /* FallingWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallingWord.swift; sourceTree = "<group>"; };
+		5C974573298AB75000EBE317 /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
+		5C9745B4298BCCD800EBE317 /* FallingWords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallingWords.swift; sourceTree = "<group>"; };
 		5C9E9D03296C3F940072ABE9 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -157,8 +159,9 @@
 			isa = PBXGroup;
 			children = (
 				5C8B58CE297FF3B10021A556 /* TypingView.swift */,
-				5C97456F2989100300EBE317 /* FallingWord.swift */,
+				5C974573298AB75000EBE317 /* TopBarView.swift */,
 				5C97456B2988136000EBE317 /* TypeHereAnimation.swift */,
+				5C9745B4298BCCD800EBE317 /* FallingWords.swift */,
 				5C97456D2988139A00EBE317 /* HighlightedLetter.swift */,
 			);
 			path = View;
@@ -302,11 +305,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C974574298AB75000EBE317 /* TopBarView.swift in Sources */,
 				5C8A860F295FA669004AC41E /* ContentView.swift in Sources */,
 				5C9E9D04296C3F940072ABE9 /* Word.swift in Sources */,
 				5C8A860D295FA669004AC41E /* WordGameIOS_V_1App.swift in Sources */,
 				5C97456E2988139A00EBE317 /* HighlightedLetter.swift in Sources */,
-				5C9745702989100300EBE317 /* FallingWord.swift in Sources */,
+				5C9745B5298BCCD800EBE317 /* FallingWords.swift in Sources */,
 				5C8B58CF297FF3B10021A556 /* TypingView.swift in Sources */,
 				5C97456C2988136000EBE317 /* TypeHereAnimation.swift in Sources */,
 				5C8B58D5297FF3F70021A556 /* TypingViewModel.swift in Sources */,

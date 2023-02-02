@@ -9,12 +9,12 @@ import SwiftUI
 
 @main
 struct WordGameIOS_V_1App: App {
-    @StateObject var typingVM = TypingViewModel()
+//    @StateObject var typingVM = TypingViewModel()
     
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(typingVM)
+//                .environmentObject(typingVM)
         }
     }
 }

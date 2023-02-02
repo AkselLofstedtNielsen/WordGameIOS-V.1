@@ -8,9 +8,11 @@
 import Foundation
 
 //a word in the wordlist
-struct Word : Identifiable {
+class Word : Identifiable, ObservableObject {
     var id = UUID()
     var word : String
+    var xPos : CGFloat
+    @Published var yPos : CGFloat
     
     var letters : [Character]{
         let st = word
@@ -20,5 +22,11 @@ struct Word : Identifiable {
     
     var letter : Character{
         return letters.first(where: { $0.isLetter }) ?? "#"
+    }
+    
+    init(word: String, xPos: CGFloat, yPos: CGFloat) {
+        self.word = word
+        self.xPos = xPos
+        self.yPos = yPos
     }
 }

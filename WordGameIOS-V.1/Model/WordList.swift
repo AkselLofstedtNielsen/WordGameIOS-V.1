@@ -8,22 +8,33 @@
 import Foundation
 
 //Wordlist = fylls av firebase, fyller resten av projekten.
-class WordList{
-    @Published var words : [Word] = [Word(word:"AKSEL"),
-                                     Word(word:"BANAN"),
-                                     Word(word:"CITRON"),
-                                     Word(word:"DELFIN"),
-                                     Word(word:"ELEFANT"),
-                                     Word(word:"FIOL"),
-                                     Word(word:"GRODA"),
-                                     Word(word:"HUMMER"),
-                                     Word(word:"ISLAND")]
+class WordList: ObservableObject{
+    @Published var words : [Word] = [Word(word:"AKSEL",xPos: -120, yPos: -400)]
+    
+    @Published var gameWords : [Word] = [Word(word:"BANAN", xPos: -95, yPos: -400),
+                                         Word(word:"CITRON",xPos: -60,yPos: -400),
+                                         Word(word:"DELFIN",xPos: -75,yPos: -400),
+                                         Word(word:"ELEFANT",xPos: -100,yPos: -400),
+                                         Word(word:"FIOL",xPos: 20,yPos: -400),
+                                         Word(word:"GRODA",xPos: 40,yPos: -400),
+                                         Word(word:"HUMMER",xPos: 75,yPos: -400),
+                                         Word(word:"ISLAND",xPos: 100,yPos: -400),
+                                         Word(word:"JULKULA", xPos: 120, yPos: -400)]
     
     @Published var typed : [Word] = []
     
 
-    
-    
+    func addRandomWord(){
+        guard let word = gameWords.randomElement() else {return}
+        
+        let id = word.id
+        addToWords(word: word)
+        gameWords.removeAll(where: {$0.id == id})
+        
+    }
+    func addToWords(word: Word){
+        words.append(word)
+    }
     func addToTyped(inputWord: Word){
         typed.append(inputWord)
     }

@@ -12,19 +12,31 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @EnvironmentObject var vm : TypingViewModel
+    @State var nextWord = false
+    @State var i = 0
+    
     var body: some View {
-        VStack{
-            FallingWord(word: "hej")
-//            TypingView(typingVM: TypingViewModel())
+        ZStack{
+            VStack{
+                TopBarView(typingVM: vm)
+                Spacer()
+                FallingWords(typingVM: vm)
+                Spacer()
+                TypingView(typingVM: vm)
+            }
+            
         }
     }
     
     
     
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+    
+    
+    
+    struct ContentView_Previews: PreviewProvider {
+        static var previews: some View {
+            ContentView()
+        }
     }
 }

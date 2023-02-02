@@ -14,10 +14,10 @@ struct typeHereAnimation: View{
     var body: some View {
         VStack{
             VStack(spacing: 5){
-                Text("Type here")
+                Text("Type to start")
                 Image(systemName: "arrow.down")
             }
-            .offset(y: bouncing ? -15: -25)
+            .offset(y: bouncing ? -5: -15)
             .animation(.easeIn(duration: 1).repeatForever())
             .onAppear(){
                 self.bouncing.toggle()
