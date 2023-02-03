@@ -9,9 +9,10 @@ import Foundation
 
 //Wordlist = fylls av firebase, fyller resten av projekten.
 class WordList: ObservableObject{
-    @Published var words : [Word] = [Word(word:"AKSEL",xPos: -120, yPos: -400)]
+    @Published var words : [Word] = []
     
-    @Published var gameWords : [Word] = [Word(word:"BANAN", xPos: -95, yPos: -400),
+    @Published var gameWords : [Word] = [Word(word:"AKSEL",xPos: -120, yPos: -400),
+                                         Word(word:"BANAN", xPos: -95, yPos: -400),
                                          Word(word:"CITRON",xPos: -60,yPos: -400),
                                          Word(word:"DELFIN",xPos: -75,yPos: -400),
                                          Word(word:"ELEFANT",xPos: -100,yPos: -400),

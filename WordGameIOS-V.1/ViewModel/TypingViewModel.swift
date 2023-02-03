@@ -25,6 +25,8 @@ class TypingViewModel : ObservableObject {
     
     @Published var list = WordList()
     
+
+    
     
     
     func testing(letter: Character) {
@@ -71,6 +73,16 @@ class TypingViewModel : ObservableObject {
         }
         
       }
+    func addWordToGame(){
+        let check: Double = timePlayed .truncatingRemainder(dividingBy: 2.0)
+        let checkRounded = check.roundToDecimal(1)
+
+        if  checkRounded == 0.1{
+
+            list.addRandomWord()
+        }
+    }
+    
       
       func resetWord() {
           letterPosition = 1

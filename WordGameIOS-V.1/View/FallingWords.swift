@@ -8,53 +8,34 @@
 import SwiftUI
 
 struct FallingWords: View {
-    
     @ObservedObject var typingVM : TypingViewModel
-    
-    @State var game : Int = 0
-    
-    @State var gameSpeed : Double = 0.01
+
 
     var body: some View {
-        ForEach(typingVM.list.words){word in
-            HighlightedText(word.word, matching: typingVM.userText)
-                .offset(x: word.xPos, y: word.yPos)
-            }
-        .onAppear(perform: {
-            gameTimer()
-            timer()
-        })
-    }
-
-    func gameTimer(){
-        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true){_ in
-            game += 1
-            if game % 5 == 0{
-                typingVM.list.addRandomWord()
-            }
+        ForEach(typingVM.list.words){ wrd in
+            WordView(typingVM: typingVM, word: wrd)
+            
         }
     }
-    func timer(){
-        Timer.scheduledTimer(withTimeInterval: gameSpeed, repeats: true){_ in
-            for word in typingVM.list.words{
-                word.yPos += 1
-            }
+
+ 
+}
 
 
-        }
+struct WordView : View {
+    @ObservedObject var typingVM : TypingViewModel
+    var word : Word
+    @State var animate = false
+    
+
+    var body: some View{
+        HighlightedText(word.word, matching: typingVM.userText)
+            .offset(x: word.xPos, y: animate ? 0 : word.yPos)
+            .animation(.linear(duration: 8.0), value: animate)
+            .onAppear(perform: {
+                animate.toggle()
+            })
+            
     }
 }
 
-//struct WordView : View {
-//    var word : Word
-//    var yPos : CGFloat
-//
-//    var body: some View{
-//        Text(word.word)
-//    }
-//}
-//struct FallingWords_Previews: PreviewProvider {
-//    static var previews: some View {
-//        FallingWords()
-//    }
-//}

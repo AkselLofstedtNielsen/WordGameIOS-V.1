@@ -21,6 +21,7 @@
 		5C97456E2988139A00EBE317 /* HighlightedLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C97456D2988139A00EBE317 /* HighlightedLetter.swift */; };
 		5C974574298AB75000EBE317 /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C974573298AB75000EBE317 /* TopBarView.swift */; };
 		5C9745B5298BCCD800EBE317 /* FallingWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9745B4298BCCD800EBE317 /* FallingWords.swift */; };
+		5C9745B7298D2D8D00EBE317 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9745B6298D2D8D00EBE317 /* Extension.swift */; };
 		5C9E9D04296C3F940072ABE9 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9E9D03296C3F940072ABE9 /* Word.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,7 @@
 		5C97456D2988139A00EBE317 /* HighlightedLetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightedLetter.swift; sourceTree = "<group>"; };
 		5C974573298AB75000EBE317 /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
 		5C9745B4298BCCD800EBE317 /* FallingWords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallingWords.swift; sourceTree = "<group>"; };
+		5C9745B6298D2D8D00EBE317 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		5C9E9D03296C3F940072ABE9 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -150,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				5C9E9D03296C3F940072ABE9 /* Word.swift */,
+				5C9745B6298D2D8D00EBE317 /* Extension.swift */,
 				5C8B58D8297FFCE30021A556 /* WordList.swift */,
 			);
 			path = Model;
@@ -309,6 +312,7 @@
 				5C8A860F295FA669004AC41E /* ContentView.swift in Sources */,
 				5C9E9D04296C3F940072ABE9 /* Word.swift in Sources */,
 				5C8A860D295FA669004AC41E /* WordGameIOS_V_1App.swift in Sources */,
+				5C9745B7298D2D8D00EBE317 /* Extension.swift in Sources */,
 				5C97456E2988139A00EBE317 /* HighlightedLetter.swift in Sources */,
 				5C9745B5298BCCD800EBE317 /* FallingWords.swift in Sources */,
 				5C8B58CF297FF3B10021A556 /* TypingView.swift in Sources */,

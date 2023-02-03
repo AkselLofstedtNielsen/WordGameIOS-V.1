@@ -21,6 +21,7 @@ struct TopBarView: View {
                     .onReceive(timer){ _ in
                         if typingVM.isTimerRunning{
                             typingVM.timePlayed += 0.1
+                            typingVM.addWordToGame()
                         }
                     }
             }else{
