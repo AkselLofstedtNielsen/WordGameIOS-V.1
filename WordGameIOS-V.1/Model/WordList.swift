@@ -39,4 +39,5 @@ class WordList: ObservableObject{
     func addToTyped(inputWord: Word){
         typed.append(inputWord)
     }
+
 }

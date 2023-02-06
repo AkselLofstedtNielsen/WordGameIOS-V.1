@@ -12,6 +12,7 @@ class Word : Identifiable, ObservableObject {
     var id = UUID()
     var word : String
     var xPos : CGFloat
+    var dead : Bool = false
     @Published var yPos : CGFloat
     
     var letters : [Character]{

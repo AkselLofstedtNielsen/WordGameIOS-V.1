@@ -34,6 +34,9 @@ import SwiftUI
                         if typingVM.userText.last != nil{
                             typingVM.testing(letter: typingVM.userText.last!)
                         }
+                        else{
+                            typingVM.wordFound = false
+                        }
                         
                     }
             }

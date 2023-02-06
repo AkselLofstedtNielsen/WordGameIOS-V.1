@@ -12,6 +12,7 @@ import Foundation
 class TypingViewModel : ObservableObject {
     
     //spelet ska inte sluta när words är tom utan när gameword är tom
+    @Published var playerLife : Int = 3
 
     @Published var timePlayed = 0.0
     @Published var isTimerRunning = false
@@ -41,12 +42,17 @@ class TypingViewModel : ObservableObject {
                 if letterPosition == wordInLetters.count - 1{
                     print("Ord skrivet")
                     resetWord()
-                    list.addToTyped(inputWord: list.words.first(where: {$0.id == id})!)
-                    list.words.removeAll(where: {$0.id == id})
+                    list.addToTyped(inputWord: list.words[index])
+                    list.words.remove(at: index)
                     
                     if list.gameWords.isEmpty && list.words.isEmpty{
+                    
                         WPS = getWPS()
                         stopGame()
+                        
+                        for word in list.typed{
+                            print("\(word.word) + \(word.dead)")
+                        }
                     }
                     
                 }else{
@@ -102,6 +108,7 @@ class TypingViewModel : ObservableObject {
       }
       
       func restartGame() {
+          //Fill from firebase
           for word in list.typed{
               list.words.append(word)
           }
@@ -110,7 +117,15 @@ class TypingViewModel : ObservableObject {
           gameOver = false
           isTimerRunning = true
           timePlayed = 0.0
+          playerLife = 3
       }
+    func checkDead(){
+        if playerLife == 0{
+            stopGame()
+        }
+        
+    }
+    
     
   }
 

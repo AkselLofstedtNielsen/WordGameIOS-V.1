@@ -13,8 +13,10 @@ struct TopBarView: View {
     
     var body: some View {
         HStack{
-            Spacer()
+           
             if !typingVM.gameOver{
+                Text("Life left: \(typingVM.playerLife)")
+                Spacer()
                 Text("Time: \(typingVM.timePlayed)")
                     .bold()
                     .foregroundColor(.red)
