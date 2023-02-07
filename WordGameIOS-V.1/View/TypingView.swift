@@ -19,8 +19,11 @@ import SwiftUI
                 
                 TextField("", text: $typingVM.userText)
                     .onTapGesture {
-                        typingVM.isTimerRunning.toggle()
-                        typingVM.gameOver = false
+                        if typingVM.gameOver{
+                            typingVM.isTimerRunning.toggle()
+                            typingVM.gameOver = false
+                        }
+                        
                     }
                     .frame(height: 75).border(.red)
                     .textFieldStyle(.automatic)

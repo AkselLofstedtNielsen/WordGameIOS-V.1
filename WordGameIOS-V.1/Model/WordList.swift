@@ -39,5 +39,10 @@ class WordList: ObservableObject{
     func addToTyped(inputWord: Word){
         typed.append(inputWord)
     }
+    func clearAll(){
+        words.removeAll()
+        typed.removeAll()
+        gameWords.removeAll()
+    }
 
 }

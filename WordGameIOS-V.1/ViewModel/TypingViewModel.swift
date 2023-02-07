@@ -89,7 +89,6 @@ class TypingViewModel : ObservableObject {
         }
     }
     
-      
       func resetWord() {
           letterPosition = 1
           userText = ""
@@ -109,10 +108,6 @@ class TypingViewModel : ObservableObject {
       
       func restartGame() {
           //Fill from firebase
-          for word in list.typed{
-              list.words.append(word)
-          }
-          list.typed.removeAll()
           
           gameOver = false
           isTimerRunning = true
@@ -121,7 +116,9 @@ class TypingViewModel : ObservableObject {
       }
     func checkDead(){
         if playerLife == 0{
+            list.clearAll()
             stopGame()
+            
         }
         
     }
