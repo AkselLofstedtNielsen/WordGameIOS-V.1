@@ -13,17 +13,16 @@ struct WordView : View {
     var word : Word
     @State var animate = false
     @State var contains = false
-    @State var gameSpeed : Double = 9.0 //time it takes the word to fall 9.0 = easiest, 7.0, 5.0 for harder
 
     
 
     var body: some View{
         HighlightedText(word.word, matching: typingVM.userText)
             .offset(x: word.xPos, y: animate ? 200 : word.yPos)
-            .animation(.linear(duration: gameSpeed), value: animate)
+            .animation(.linear(duration: typingVM.gameSpeed), value: animate)
             .onAppear(perform: {
                 animate.toggle()
-                DispatchQueue.main.asyncAfter(deadline: .now() + gameSpeed) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + typingVM.gameSpeed) {
                     let contains = typingVM.list.words.contains { contain in
                         return contain.word == word.word
                     }

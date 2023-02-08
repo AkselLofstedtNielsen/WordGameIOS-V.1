@@ -26,6 +26,8 @@ class TypingViewModel : ObservableObject {
     
     @Published var list = WordList()
     
+    @Published var gameSpeed : Double = 9.0
+    
 
     
 

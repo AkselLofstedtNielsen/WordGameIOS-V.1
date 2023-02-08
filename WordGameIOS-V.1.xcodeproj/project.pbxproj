@@ -29,6 +29,8 @@
 		5C97460A29925C2100EBE317 /* FirebaseTestWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C97460929925C2100EBE317 /* FirebaseTestWord.swift */; };
 		5C97460C29925FE900EBE317 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C97460B29925FE800EBE317 /* GoogleService-Info.plist */; };
 		5C97460E2993AD9600EBE317 /* WordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C97460D2993AD9600EBE317 /* WordView.swift */; };
+		5C9746122993B13F00EBE317 /* StartScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9746112993B13F00EBE317 /* StartScreenView.swift */; };
+		5C9746142993B29200EBE317 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9746132993B29200EBE317 /* GameView.swift */; };
 		5C9E9D04296C3F940072ABE9 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9E9D03296C3F940072ABE9 /* Word.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +74,8 @@
 		5C97460929925C2100EBE317 /* FirebaseTestWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTestWord.swift; sourceTree = "<group>"; };
 		5C97460B29925FE800EBE317 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5C97460D2993AD9600EBE317 /* WordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordView.swift; sourceTree = "<group>"; };
+		5C9746112993B13F00EBE317 /* StartScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenView.swift; sourceTree = "<group>"; };
+		5C9746132993B29200EBE317 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		5C9E9D03296C3F940072ABE9 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -182,7 +186,9 @@
 				5C974573298AB75000EBE317 /* TopBarView.swift */,
 				5C97456B2988136000EBE317 /* TypeHereAnimation.swift */,
 				5C9745B4298BCCD800EBE317 /* FallingWords.swift */,
+				5C9746112993B13F00EBE317 /* StartScreenView.swift */,
 				5C97456D2988139A00EBE317 /* HighlightedLetter.swift */,
+				5C9746132993B29200EBE317 /* GameView.swift */,
 				5C97460D2993AD9600EBE317 /* WordView.swift */,
 			);
 			path = View;
@@ -344,10 +350,12 @@
 				5C9745B7298D2D8D00EBE317 /* Extension.swift in Sources */,
 				5C97456E2988139A00EBE317 /* HighlightedLetter.swift in Sources */,
 				5C9745B5298BCCD800EBE317 /* FallingWords.swift in Sources */,
+				5C9746122993B13F00EBE317 /* StartScreenView.swift in Sources */,
 				5C8B58CF297FF3B10021A556 /* TypingView.swift in Sources */,
 				5C97460E2993AD9600EBE317 /* WordView.swift in Sources */,
 				5C97456C2988136000EBE317 /* TypeHereAnimation.swift in Sources */,
 				5C8B58D5297FF3F70021A556 /* TypingViewModel.swift in Sources */,
+				5C9746142993B29200EBE317 /* GameView.swift in Sources */,
 				5C8B58D9297FFCE30021A556 /* WordList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,6 +12,7 @@ struct FallingWords: View {
     @State var isPlaying = true
 
 
+
     var body: some View {
         ZStack{
             if !typingVM.gameOver{

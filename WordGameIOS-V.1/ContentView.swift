@@ -12,20 +12,9 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @EnvironmentObject var vm : TypingViewModel
-    @State var nextWord = false
-    @State var i = 0
-    
     var body: some View {
         ZStack{
-            VStack{
-                TopBarView(typingVM: vm)
-                Spacer()
-                FallingWords(typingVM: vm)
-                Spacer()
-                TypingView(typingVM: vm)
-            }
-
+            StartScreenView()
         }
     }
     
