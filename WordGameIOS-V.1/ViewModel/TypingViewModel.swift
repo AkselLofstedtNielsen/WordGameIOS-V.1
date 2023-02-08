@@ -131,10 +131,6 @@ class TypingViewModel : ObservableObject {
   }
 
 
-    //TODO func för,
-    //Backspace för att hoppa ur ord när det väl e valt
-
-
 
 
    

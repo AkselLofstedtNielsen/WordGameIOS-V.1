@@ -12,8 +12,6 @@ struct FirebaseWord: Codable, Identifiable{
     @DocumentID var id : String?
     var word : String
     
-    //fixa yPos + xPos
-    
     
 }
 

@@ -19,8 +19,12 @@ class WordList: ObservableObject{
     
 
     func fillFromFB(){
-        for word in fbManager.words{
-            gameWords.append(Word(word: word.word, xPos: 0, yPos: 0))
+        if fbManager.words.isEmpty{
+            gameWords.append(Word(word: "NOFIREBASEWORDS", xPos: 0, yPos: 0))
+        }else{
+            for word in fbManager.words{
+                gameWords.append(Word(word: word.word, xPos: 0, yPos: 0))
+            }
         }
     }
     func addRandomWord(){
