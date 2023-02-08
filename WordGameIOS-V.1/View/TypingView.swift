@@ -20,8 +20,7 @@ import SwiftUI
                 TextField("", text: $typingVM.userText)
                     .onTapGesture {
                         if typingVM.gameOver{
-                            typingVM.isTimerRunning.toggle()
-                            typingVM.gameOver = false
+                            typingVM.restartGame()
                         }
                         
                     }

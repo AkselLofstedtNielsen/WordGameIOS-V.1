@@ -9,22 +9,20 @@ import Foundation
 
 //Wordlist = fylls av firebase, fyller resten av projekten.
 class WordList: ObservableObject{
+    var fbManager = FirestoreManager()
+    
     @Published var words : [Word] = []
     
-    @Published var gameWords : [Word] = [Word(word:"AKSEL",xPos: -120, yPos: -400),
-                                         Word(word:"BANAN", xPos: -95, yPos: -400),
-                                         Word(word:"CITRON",xPos: -60,yPos: -400),
-                                         Word(word:"DELFIN",xPos: -75,yPos: -400),
-                                         Word(word:"ELEFANT",xPos: -100,yPos: -400),
-                                         Word(word:"FIOL",xPos: 20,yPos: -400),
-                                         Word(word:"GRODA",xPos: 40,yPos: -400),
-                                         Word(word:"HUMMER",xPos: 75,yPos: -400),
-                                         Word(word:"ISLAND",xPos: 100,yPos: -400),
-                                         Word(word:"JULKULA", xPos: 120, yPos: -400)]
+    @Published var gameWords : [Word] = []
     
     @Published var typed : [Word] = []
     
 
+    func fillFromFB(){
+        for word in fbManager.words{
+            gameWords.append(Word(word: word.word, xPos: 0, yPos: 0))
+        }
+    }
     func addRandomWord(){
         guard let word = gameWords.randomElement() else {return}
         
@@ -32,6 +30,13 @@ class WordList: ObservableObject{
         addToWords(word: word)
         gameWords.removeAll(where: {$0.id == id})
         
+    }
+    func startPositions(){
+        let xPositions : [CGFloat] = [-140, -120, -100, -80, -60, -40, 0, 30, 50, 70,90,130]
+        for word in gameWords{
+            word.xPos = xPositions.randomElement()!
+            word.yPos = -400
+        }
     }
     func addToWords(word: Word){
         words.append(word)

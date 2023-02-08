@@ -28,6 +28,8 @@ class TypingViewModel : ObservableObject {
     
 
     
+
+    
     
     
     func testing(letter: Character) {
@@ -108,6 +110,8 @@ class TypingViewModel : ObservableObject {
       
       func restartGame() {
           //Fill from firebase
+          list.fillFromFB()
+          list.startPositions()
           
           gameOver = false
           isTimerRunning = true

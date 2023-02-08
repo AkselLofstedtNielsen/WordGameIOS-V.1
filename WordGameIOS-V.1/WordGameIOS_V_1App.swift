@@ -6,10 +6,15 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct WordGameIOS_V_1App: App {
     @StateObject var typingVM = TypingViewModel()
+    
+    init(){
+        FirebaseApp.configure()
+    }
     
     var body: some Scene {
         WindowGroup {

@@ -22,6 +22,13 @@
 		5C974574298AB75000EBE317 /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C974573298AB75000EBE317 /* TopBarView.swift */; };
 		5C9745B5298BCCD800EBE317 /* FallingWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9745B4298BCCD800EBE317 /* FallingWords.swift */; };
 		5C9745B7298D2D8D00EBE317 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9745B6298D2D8D00EBE317 /* Extension.swift */; };
+		5C97460029925AD000EBE317 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 5C9745FF29925AD000EBE317 /* FirebaseFirestore */; };
+		5C97460229925AD000EBE317 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5C97460129925AD000EBE317 /* FirebaseFirestoreSwift */; };
+		5C97460429925AD000EBE317 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = 5C97460329925AD000EBE317 /* FirebaseFunctions */; };
+		5C97460629925BE300EBE317 /* FirebaseTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C97460529925BE300EBE317 /* FirebaseTestView.swift */; };
+		5C97460829925BF100EBE317 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C97460729925BF100EBE317 /* FirebaseManager.swift */; };
+		5C97460A29925C2100EBE317 /* FirebaseTestWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C97460929925C2100EBE317 /* FirebaseTestWord.swift */; };
+		5C97460C29925FE900EBE317 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C97460B29925FE800EBE317 /* GoogleService-Info.plist */; };
 		5C9E9D04296C3F940072ABE9 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9E9D03296C3F940072ABE9 /* Word.swift */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +68,10 @@
 		5C974573298AB75000EBE317 /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
 		5C9745B4298BCCD800EBE317 /* FallingWords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallingWords.swift; sourceTree = "<group>"; };
 		5C9745B6298D2D8D00EBE317 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		5C97460529925BE300EBE317 /* FirebaseTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTestView.swift; sourceTree = "<group>"; };
+		5C97460729925BF100EBE317 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		5C97460929925C2100EBE317 /* FirebaseTestWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTestWord.swift; sourceTree = "<group>"; };
+		5C97460B29925FE800EBE317 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5C9E9D03296C3F940072ABE9 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -69,6 +80,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C97460429925AD000EBE317 /* FirebaseFunctions in Frameworks */,
+				5C97460029925AD000EBE317 /* FirebaseFirestore in Frameworks */,
+				5C97460229925AD000EBE317 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +132,7 @@
 				5C9E9D8429783D0E0072ABE9 /* Model */,
 				5C8A860E295FA669004AC41E /* ContentView.swift */,
 				5C8A8610295FA66B004AC41E /* Assets.xcassets */,
+				5C97460B29925FE800EBE317 /* GoogleService-Info.plist */,
 				5C8A8612295FA66B004AC41E /* Preview Content */,
 			);
 			path = "WordGameIOS-V.1";
@@ -152,6 +167,8 @@
 			isa = PBXGroup;
 			children = (
 				5C9E9D03296C3F940072ABE9 /* Word.swift */,
+				5C97460929925C2100EBE317 /* FirebaseTestWord.swift */,
+				5C97460729925BF100EBE317 /* FirebaseManager.swift */,
 				5C9745B6298D2D8D00EBE317 /* Extension.swift */,
 				5C8B58D8297FFCE30021A556 /* WordList.swift */,
 			);
@@ -162,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				5C8B58CE297FF3B10021A556 /* TypingView.swift */,
+				5C97460529925BE300EBE317 /* FirebaseTestView.swift */,
 				5C974573298AB75000EBE317 /* TopBarView.swift */,
 				5C97456B2988136000EBE317 /* TypeHereAnimation.swift */,
 				5C9745B4298BCCD800EBE317 /* FallingWords.swift */,
@@ -194,6 +212,11 @@
 			dependencies = (
 			);
 			name = "WordGameIOS-V.1";
+			packageProductDependencies = (
+				5C9745FF29925AD000EBE317 /* FirebaseFirestore */,
+				5C97460129925AD000EBE317 /* FirebaseFirestoreSwift */,
+				5C97460329925AD000EBE317 /* FirebaseFunctions */,
+			);
 			productName = "WordGameIOS-V.1";
 			productReference = 5C8A8609295FA669004AC41E /* WordGameIOS-V.1.app */;
 			productType = "com.apple.product-type.application";
@@ -266,6 +289,9 @@
 				Base,
 			);
 			mainGroup = 5C8A8600295FA669004AC41E;
+			packageReferences = (
+				5C9745FE29925AD000EBE317 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 5C8A860A295FA669004AC41E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -284,6 +310,7 @@
 			files = (
 				5C8A8614295FA66B004AC41E /* Preview Assets.xcassets in Resources */,
 				5C8A8611295FA66B004AC41E /* Assets.xcassets in Resources */,
+				5C97460C29925FE900EBE317 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,8 +335,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C97460829925BF100EBE317 /* FirebaseManager.swift in Sources */,
 				5C974574298AB75000EBE317 /* TopBarView.swift in Sources */,
+				5C97460629925BE300EBE317 /* FirebaseTestView.swift in Sources */,
 				5C8A860F295FA669004AC41E /* ContentView.swift in Sources */,
+				5C97460A29925C2100EBE317 /* FirebaseTestWord.swift in Sources */,
 				5C9E9D04296C3F940072ABE9 /* Word.swift in Sources */,
 				5C8A860D295FA669004AC41E /* WordGameIOS_V_1App.swift in Sources */,
 				5C9745B7298D2D8D00EBE317 /* Extension.swift in Sources */,
@@ -643,6 +673,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5C9745FE29925AD000EBE317 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5C9745FF29925AD000EBE317 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C9745FE29925AD000EBE317 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		5C97460129925AD000EBE317 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C9745FE29925AD000EBE317 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		5C97460329925AD000EBE317 /* FirebaseFunctions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C9745FE29925AD000EBE317 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFunctions;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5C8A8601295FA669004AC41E /* Project object */;
 }
