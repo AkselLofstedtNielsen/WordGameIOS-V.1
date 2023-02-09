@@ -19,7 +19,7 @@ struct TopBarView: View {
                 Spacer()
                 Text("Time: \(typingVM.timePlayed)")
                     .bold()
-                    .foregroundColor(.red)
+                    .foregroundColor(.black)
                     .onReceive(timer){ _ in
                         if typingVM.isTimerRunning{
                             typingVM.timePlayed += 0.1
@@ -28,7 +28,7 @@ struct TopBarView: View {
                     }
             }else{
                 Text("\(typingVM.WPS): Words per second")
-                    .foregroundColor(.green)
+                    .foregroundColor(.purple)
                     .bold()
             }
             

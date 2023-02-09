@@ -24,7 +24,7 @@ import SwiftUI
                         }
                         
                     }
-                    .frame(height: 75).border(.red)
+                    .frame(height: 75).border(.purple)
                     .textFieldStyle(.automatic)
                     .multilineTextAlignment(.center)
                     .autocorrectionDisabled(true)

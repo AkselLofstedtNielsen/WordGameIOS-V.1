@@ -23,7 +23,7 @@ var body: some View {
     let split = tagged.components(separatedBy: "<SPLIT>")
     return split.reduce(Text("")) { (a, b) -> Text in
         guard !b.hasPrefix(">") else {
-            return a + Text(b.dropFirst()).foregroundColor(.cyan)
+            return a + Text(b.dropFirst()).foregroundColor(.purple)
         }
         return a + Text(b)
     }

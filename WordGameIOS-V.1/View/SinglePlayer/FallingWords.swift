@@ -21,7 +21,7 @@ struct FallingWords: View {
                 }
                 Rectangle()
                     .frame(height: 10.0)
-                    .foregroundColor(.red)
+                    .foregroundColor(.black)
                     .offset(y: 200)
                     
             }else{
