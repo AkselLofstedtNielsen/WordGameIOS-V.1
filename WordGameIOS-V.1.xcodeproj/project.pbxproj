@@ -32,6 +32,8 @@
 		5C9746122993B13F00EBE317 /* StartScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9746112993B13F00EBE317 /* StartScreenView.swift */; };
 		5C9746142993B29200EBE317 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9746132993B29200EBE317 /* GameView.swift */; };
 		5C9E9D04296C3F940072ABE9 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9E9D03296C3F940072ABE9 /* Word.swift */; };
+		5CAC6EBC299504B20065A7EB /* LogInScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAC6EBB299504B20065A7EB /* LogInScreen.swift */; };
+		5CAC6EBF299507F20065A7EB /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 5CAC6EBE299507F20065A7EB /* FirebaseAuth */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,7 @@
 		5C9746112993B13F00EBE317 /* StartScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenView.swift; sourceTree = "<group>"; };
 		5C9746132993B29200EBE317 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		5C9E9D03296C3F940072ABE9 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
+		5CAC6EBB299504B20065A7EB /* LogInScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +90,7 @@
 				5C97460429925AD000EBE317 /* FirebaseFunctions in Frameworks */,
 				5C97460029925AD000EBE317 /* FirebaseFirestore in Frameworks */,
 				5C97460229925AD000EBE317 /* FirebaseFirestoreSwift in Frameworks */,
+				5CAC6EBF299507F20065A7EB /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +118,7 @@
 				5C8A861C295FA66C004AC41E /* WordGameIOS-V.1Tests */,
 				5C8A8626295FA66C004AC41E /* WordGameIOS-V.1UITests */,
 				5C8A860A295FA669004AC41E /* Products */,
+				5CAC6EBD299507F20065A7EB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -182,14 +187,9 @@
 		5C9E9D8529783D520072ABE9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5C8B58CE297FF3B10021A556 /* TypingView.swift */,
-				5C974573298AB75000EBE317 /* TopBarView.swift */,
-				5C97456B2988136000EBE317 /* TypeHereAnimation.swift */,
-				5C9745B4298BCCD800EBE317 /* FallingWords.swift */,
-				5C9746112993B13F00EBE317 /* StartScreenView.swift */,
-				5C97456D2988139A00EBE317 /* HighlightedLetter.swift */,
-				5C9746132993B29200EBE317 /* GameView.swift */,
-				5C97460D2993AD9600EBE317 /* WordView.swift */,
+				5CAC6EBA2993F1040065A7EB /* Screens */,
+				5CAC6EB82993F0B30065A7EB /* Animation */,
+				5CAC6EB92993F0DA0065A7EB /* SinglePlayer */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -200,6 +200,43 @@
 				5C8B58D4297FF3F70021A556 /* TypingViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		5CAC6EB82993F0B30065A7EB /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				5C97456D2988139A00EBE317 /* HighlightedLetter.swift */,
+				5C97456B2988136000EBE317 /* TypeHereAnimation.swift */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
+		5CAC6EB92993F0DA0065A7EB /* SinglePlayer */ = {
+			isa = PBXGroup;
+			children = (
+				5C974573298AB75000EBE317 /* TopBarView.swift */,
+				5C8B58CE297FF3B10021A556 /* TypingView.swift */,
+				5C9746132993B29200EBE317 /* GameView.swift */,
+				5C9745B4298BCCD800EBE317 /* FallingWords.swift */,
+				5C97460D2993AD9600EBE317 /* WordView.swift */,
+			);
+			path = SinglePlayer;
+			sourceTree = "<group>";
+		};
+		5CAC6EBA2993F1040065A7EB /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				5C9746112993B13F00EBE317 /* StartScreenView.swift */,
+				5CAC6EBB299504B20065A7EB /* LogInScreen.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		5CAC6EBD299507F20065A7EB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +259,7 @@
 				5C9745FF29925AD000EBE317 /* FirebaseFirestore */,
 				5C97460129925AD000EBE317 /* FirebaseFirestoreSwift */,
 				5C97460329925AD000EBE317 /* FirebaseFunctions */,
+				5CAC6EBE299507F20065A7EB /* FirebaseAuth */,
 			);
 			productName = "WordGameIOS-V.1";
 			productReference = 5C8A8609295FA669004AC41E /* WordGameIOS-V.1.app */;
@@ -351,6 +389,7 @@
 				5C97456E2988139A00EBE317 /* HighlightedLetter.swift in Sources */,
 				5C9745B5298BCCD800EBE317 /* FallingWords.swift in Sources */,
 				5C9746122993B13F00EBE317 /* StartScreenView.swift in Sources */,
+				5CAC6EBC299504B20065A7EB /* LogInScreen.swift in Sources */,
 				5C8B58CF297FF3B10021A556 /* TypingView.swift in Sources */,
 				5C97460E2993AD9600EBE317 /* WordView.swift in Sources */,
 				5C97456C2988136000EBE317 /* TypeHereAnimation.swift in Sources */,
@@ -708,6 +747,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5C9745FE29925AD000EBE317 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFunctions;
+		};
+		5CAC6EBE299507F20065A7EB /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C9745FE29925AD000EBE317 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

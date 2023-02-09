@@ -6,12 +6,9 @@
 //
 
 import Foundation
-//firebase wordlist
-//VM for the typing/user input
 
 class TypingViewModel : ObservableObject {
-    
-    //spelet ska inte sluta när words är tom utan när gameword är tom
+
     @Published var playerLife : Int = 3
 
     @Published var timePlayed = 0.0
