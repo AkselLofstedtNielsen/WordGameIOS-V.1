@@ -20,7 +20,7 @@ struct GameView: View {
                 Spacer()
                 TypingView(typingVM: vm)
             }
-            .background(Color.mint)
+            .background(Color.black)
 
         }
     }

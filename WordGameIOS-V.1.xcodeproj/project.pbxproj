@@ -34,6 +34,10 @@
 		5C9E9D04296C3F940072ABE9 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9E9D03296C3F940072ABE9 /* Word.swift */; };
 		5CAC6EBC299504B20065A7EB /* LogInScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAC6EBB299504B20065A7EB /* LogInScreen.swift */; };
 		5CAC6EBF299507F20065A7EB /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 5CAC6EBE299507F20065A7EB /* FirebaseAuth */; };
+		5CAC6EC329964D720065A7EB /* MultiplayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAC6EC229964D720065A7EB /* MultiplayerView.swift */; };
+		5CAC6EC5299673900065A7EB /* NewGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAC6EC4299673900065A7EB /* NewGameView.swift */; };
+		5CAC6EC7299673BE0065A7EB /* MultiplayerTopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAC6EC6299673BE0065A7EB /* MultiplayerTopBarView.swift */; };
+		5CAC6EC9299674B10065A7EB /* MultiplayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAC6EC8299674B10065A7EB /* MultiplayerViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +84,10 @@
 		5C9746132993B29200EBE317 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		5C9E9D03296C3F940072ABE9 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		5CAC6EBB299504B20065A7EB /* LogInScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInScreen.swift; sourceTree = "<group>"; };
+		5CAC6EC229964D720065A7EB /* MultiplayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerView.swift; sourceTree = "<group>"; };
+		5CAC6EC4299673900065A7EB /* NewGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGameView.swift; sourceTree = "<group>"; };
+		5CAC6EC6299673BE0065A7EB /* MultiplayerTopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerTopBarView.swift; sourceTree = "<group>"; };
+		5CAC6EC8299674B10065A7EB /* MultiplayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +195,7 @@
 		5C9E9D8529783D520072ABE9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5CAC6EC129964D540065A7EB /* Multiplayer */,
 				5CAC6EBA2993F1040065A7EB /* Screens */,
 				5CAC6EB82993F0B30065A7EB /* Animation */,
 				5CAC6EB92993F0DA0065A7EB /* SinglePlayer */,
@@ -198,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				5C8B58D4297FF3F70021A556 /* TypingViewModel.swift */,
+				5CAC6EC8299674B10065A7EB /* MultiplayerViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -237,6 +247,16 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5CAC6EC129964D540065A7EB /* Multiplayer */ = {
+			isa = PBXGroup;
+			children = (
+				5CAC6EC229964D720065A7EB /* MultiplayerView.swift */,
+				5CAC6EC6299673BE0065A7EB /* MultiplayerTopBarView.swift */,
+				5CAC6EC4299673900065A7EB /* NewGameView.swift */,
+			);
+			path = Multiplayer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -388,10 +408,14 @@
 				5C9745B7298D2D8D00EBE317 /* Extension.swift in Sources */,
 				5C97456E2988139A00EBE317 /* HighlightedLetter.swift in Sources */,
 				5C9745B5298BCCD800EBE317 /* FallingWords.swift in Sources */,
+				5CAC6EC7299673BE0065A7EB /* MultiplayerTopBarView.swift in Sources */,
 				5C9746122993B13F00EBE317 /* StartScreenView.swift in Sources */,
 				5CAC6EBC299504B20065A7EB /* LogInScreen.swift in Sources */,
+				5CAC6EC9299674B10065A7EB /* MultiplayerViewModel.swift in Sources */,
 				5C8B58CF297FF3B10021A556 /* TypingView.swift in Sources */,
 				5C97460E2993AD9600EBE317 /* WordView.swift in Sources */,
+				5CAC6EC329964D720065A7EB /* MultiplayerView.swift in Sources */,
+				5CAC6EC5299673900065A7EB /* NewGameView.swift in Sources */,
 				5C97456C2988136000EBE317 /* TypeHereAnimation.swift in Sources */,
 				5C8B58D5297FF3F70021A556 /* TypingViewModel.swift in Sources */,
 				5C9746142993B29200EBE317 /* GameView.swift in Sources */,

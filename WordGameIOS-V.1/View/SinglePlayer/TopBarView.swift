@@ -16,10 +16,11 @@ struct TopBarView: View {
            
             if !typingVM.gameOver{
                 Text("Life left: \(typingVM.playerLife)")
+                    .foregroundColor(.purple)
                 Spacer()
                 Text("Time: \(typingVM.timePlayed)")
                     .bold()
-                    .foregroundColor(.black)
+                    .foregroundColor(.purple)
                     .onReceive(timer){ _ in
                         if typingVM.isTimerRunning{
                             typingVM.timePlayed += 0.1

@@ -29,7 +29,7 @@ import SwiftUI
                     .multilineTextAlignment(.center)
                     .autocorrectionDisabled(true)
                     .textInputAutocapitalization(.characters)
-                
+                    .foregroundColor(.white)
                     .onChange(of: typingVM.userText) { newValue in
                         typingVM.userText = typingVM.userText
                         

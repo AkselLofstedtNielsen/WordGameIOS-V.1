@@ -6,18 +6,24 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct StartScreenView: View {
     @EnvironmentObject var typingVM : TypingViewModel
-    @State var gameShow = false
     @State var logInShow = false
+    @State var singlePlayerShow = false
+    @State var multiplayerShow = false
+    var user = Auth.auth().currentUser
     
     var body: some View {
-        if gameShow{
+        if singlePlayerShow{
             GameView(vm: typingVM)
         }
         else if logInShow{
             LogInScreen(logInShow: $logInShow)
+        }
+        else if multiplayerShow{
+            MultiplayerView(multiplayerShow: $multiplayerShow)
         }
         else{
             ZStack{
@@ -28,21 +34,36 @@ struct StartScreenView: View {
                         }){
                             Image(systemName: "person.circle")
                         }
+                        .imageScale(.medium)
+                        .buttonStyle(.bordered)
+                        
+                        Spacer()
+                        
+                        Text("TYPE FIGHT")
+                            .bold()
+                            .foregroundColor(.blue)
+                        
+                        Spacer()
                         
                     }//_Hstack
                     Spacer()
                     
-                    Text("TYPE FIGHT")
-                        .bold()
-                        .foregroundColor(.blue)
+                    Button(action:{
+                        multiplayerShow.toggle()
+                    }){
+                        Text("Multiplayer")
+                    }
+                    .buttonStyle(.bordered)
                     
                     Spacer()
                     
 
+                    Text("Single player")
+                    
                        HStack{
                            Button(action:{
                                typingVM.gameSpeed = 9.0
-                               gameShow.toggle()
+                               singlePlayerShow.toggle()
                            }){
                                Text("Easy Mode")
                            }
@@ -52,7 +73,7 @@ struct StartScreenView: View {
                            
                            Button(action:{
                                typingVM.gameSpeed = 6.5
-                               gameShow.toggle()
+                               singlePlayerShow.toggle()
                            }){
                                Text("Medium Mode")
                            }
@@ -62,7 +83,7 @@ struct StartScreenView: View {
                            
                            Button(action:{
                                typingVM.gameSpeed = 4.0
-                               gameShow.toggle()
+                               singlePlayerShow.toggle()
                            }){
                                Text("Hard Mode")
                            }
@@ -73,6 +94,10 @@ struct StartScreenView: View {
                     
                     Spacer()
                 }//_VStack
+                
+                .onAppear(perform: {
+                    print("User email\(user?.email)")
+                })
             }
         }
 

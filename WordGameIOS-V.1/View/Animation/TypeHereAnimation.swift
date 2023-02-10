@@ -15,7 +15,9 @@ struct typeHereAnimation: View{
         VStack{
             VStack(spacing: 5){
                 Text("Type to start")
+                    .foregroundColor(.white)
                 Image(systemName: "arrow.down")
+                    .foregroundColor(.white)
             }
             .offset(y: bouncing ? -5: -15)
             .animation(.easeIn(duration: 1).repeatForever())

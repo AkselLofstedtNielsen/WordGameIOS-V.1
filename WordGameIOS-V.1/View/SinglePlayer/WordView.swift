@@ -34,6 +34,7 @@ struct WordView : View {
                     }
                 }
             })
+            .foregroundColor(.white)
             .font(.system(size:24, weight: .bold, design: .rounded))
         
 
