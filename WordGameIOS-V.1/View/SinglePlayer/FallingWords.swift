@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FallingWords: View {
-    @ObservedObject var typingVM : TypingViewModel
+    @ObservedObject var typingVM : SinglePlayerVM
     @State var isPlaying = true
 
 

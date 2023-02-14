@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TopBarView: View {
-    @ObservedObject var typingVM: TypingViewModel
+    @ObservedObject var typingVM: SinglePlayerVM
     @State var timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
     
     var body: some View {

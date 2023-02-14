@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct WordView : View {
-    @ObservedObject var typingVM : TypingViewModel
+    @ObservedObject var typingVM : SinglePlayerVM
     var word : Word
     @State var animate = false
     @State var contains = false

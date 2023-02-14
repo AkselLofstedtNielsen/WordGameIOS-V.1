@@ -9,7 +9,8 @@ import SwiftUI
 import FirebaseAuth
 
 struct StartScreenView: View {
-    @EnvironmentObject var typingVM : TypingViewModel
+    @EnvironmentObject var typingVM : SinglePlayerVM
+    @ObservedObject var multiplayerVM = MultiplayerVM()
     @State var logInShow = false
     @State var singlePlayerShow = false
     @State var multiplayerShow = false
@@ -23,7 +24,7 @@ struct StartScreenView: View {
             LogInScreen(logInShow: $logInShow)
         }
         else if multiplayerShow{
-            MultiplayerView(multiplayerShow: $multiplayerShow)
+            MultiplayerView(vm: multiplayerVM, multiplayerShow: $multiplayerShow)
         }
         else{
             ZStack{

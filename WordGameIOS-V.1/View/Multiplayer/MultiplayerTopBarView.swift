@@ -8,16 +8,15 @@
 import SwiftUI
 
 struct MultiplayerTopBarView: View {
-    @State var roomKey : String = "123"
+    @ObservedObject var game : MultiplayerVM
+    
     var body: some View {
         HStack{
-            Text("Room Key: \(roomKey)")
+            Text("gameId: \(game.game.gameId)")
+            Spacer()
+            Text("p1 id: \(game.game.p1Id)")
         }
     }
 }
 
-struct MultiplayerTopBarView_Previews: PreviewProvider {
-    static var previews: some View {
-        MultiplayerTopBarView()
-    }
-}
+

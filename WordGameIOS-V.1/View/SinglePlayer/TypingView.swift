@@ -8,7 +8,7 @@
 import SwiftUI
 
     struct TypingView: View {
-        @ObservedObject var typingVM: TypingViewModel
+        @ObservedObject var typingVM: SinglePlayerVM
         
         var body: some View {
             VStack{

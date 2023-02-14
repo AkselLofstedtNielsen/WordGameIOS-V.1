@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GameView: View {
-    @ObservedObject var vm : TypingViewModel
+    @ObservedObject var vm : SinglePlayerVM
 
     
     var body: some View {

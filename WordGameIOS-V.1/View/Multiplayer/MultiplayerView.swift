@@ -8,43 +8,53 @@
 import SwiftUI
 
 struct MultiplayerView: View {
+    @ObservedObject var vm : MultiplayerVM
+    
     @Binding var multiplayerShow : Bool
     @State var gameRoom = ""
+    @State var newGame = false
     
     var body: some View {
-        VStack{
-            HStack{
+        if newGame{
+            NewGameView(vm: vm)
+        }else{
+            VStack{
+                HStack{
+                    Button(action:{
+                        multiplayerShow.toggle()
+                    }){
+                        Text("Back")
+                    }
+                    .buttonStyle(.bordered)
+                    
+                    Spacer()
+                    
+                    Text("Multiplayer")
+                        .bold()
+                        .foregroundColor(.green)
+                    
+                    Spacer()
+                }
+                
+                
+                Spacer()
+                
+                
                 Button(action:{
-                    multiplayerShow.toggle()
+                    vm.subscribeToGame(id: "D28CD81F-29F0-4E20-858B-AF6E2AF3C754")
+                    newGame.toggle()
                 }){
-                    Text("Back")
+                    Text("Create new game")
                 }
                 .buttonStyle(.bordered)
                 
                 Spacer()
                 
-                Text("Multiplayer")
-                    .bold()
-                    .foregroundColor(.green)
+                TextField("Enter game room key", text: $gameRoom)
+                    .textFieldStyle(.roundedBorder)
                 
                 Spacer()
             }
-            
-            
-            Spacer()
-            
-            
-            Button(action:{
-                //Server
-            }){
-                Text("Create new game")
-            }
-            .buttonStyle(.bordered)
-            
-            Spacer()
-            
-            TextField("Enter game room key", text: $gameRoom)
-            
         }
     }
 }

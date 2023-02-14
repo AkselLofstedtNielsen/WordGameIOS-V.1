@@ -7,7 +7,7 @@
 
 import Foundation
 
-class TypingViewModel : ObservableObject {
+class SinglePlayerVM : ObservableObject {
 
     @Published var playerLife : Int = 3
 

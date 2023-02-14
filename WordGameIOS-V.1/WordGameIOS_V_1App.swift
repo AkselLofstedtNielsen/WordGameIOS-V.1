@@ -10,7 +10,7 @@ import Firebase
 
 @main
 struct WordGameIOS_V_1App: App {
-    @StateObject var typingVM = TypingViewModel()
+    @StateObject var typingVM = SinglePlayerVM()
     
     init(){
         FirebaseApp.configure()

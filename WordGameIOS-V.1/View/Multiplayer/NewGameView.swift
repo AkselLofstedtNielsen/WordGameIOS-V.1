@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct NewGameView: View {
-    @ObservedObject var vm : TypingViewModel
+    @ObservedObject var vm : MultiplayerVM
     
     var body: some View {
-        MultiplayerTopBarView()
-        Spacer()
-        FallingWords(typingVM: vm)
-        Spacer()
-        TypingView(typingVM: vm)
+        VStack{
+            MultiplayerTopBarView(game: vm)
+            Spacer()
+            
+                .background(Color.black)
+        }
     }
+    
+    
 }
-
-
