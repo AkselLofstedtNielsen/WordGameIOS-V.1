@@ -9,7 +9,6 @@ import Foundation
 import FirebaseFirestoreSwift
 
 struct MultiplayerGame: Codable{
-    var gameId : String
     
     var p1Id : String
     var p2Id : String

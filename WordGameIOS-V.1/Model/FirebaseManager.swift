@@ -49,15 +49,4 @@ class FirestoreManager: ObservableObject{
             print("Error saving")
         }
     }
-    func addGame(game : MultiplayerGame) -> String{
-        let id = UUID()
-        
-        do{
-            _ = try db.collection("games").document("\(id)").setData(from: game)
-        }catch{
-            print("Error creating game")
-        }
-        
-        return "\(id)"
-    }
 }

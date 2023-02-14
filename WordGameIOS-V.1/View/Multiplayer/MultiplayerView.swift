@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct MultiplayerView: View {
     @ObservedObject var vm : MultiplayerVM
+    
+    let user = Auth.auth().currentUser
     
     @Binding var multiplayerShow : Bool
     @State var gameRoom = ""
@@ -41,7 +44,7 @@ struct MultiplayerView: View {
                 
                 
                 Button(action:{
-                    vm.subscribeToGame(id: "D28CD81F-29F0-4E20-858B-AF6E2AF3C754")
+                    vm.addGame()
                     newGame.toggle()
                 }){
                     Text("Create new game")
@@ -52,7 +55,12 @@ struct MultiplayerView: View {
                 
                 TextField("Enter game room key", text: $gameRoom)
                     .textFieldStyle(.roundedBorder)
-                
+                Button(action:{
+//                    vm.subscribeToGame(id: <#T##String?#>)
+                }){
+                    Text("Join")
+                }
+                .buttonStyle(.bordered)
                 Spacer()
             }
         }

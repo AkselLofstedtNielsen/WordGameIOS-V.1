@@ -12,22 +12,20 @@ import Firebase
 
 class MultiplayerVM : ObservableObject{
     let db = Firestore.firestore()
+    let user = Auth.auth().currentUser
     
-    @Published var game = MultiplayerGame(gameId: "", p1Id: "", p2Id: "", p1Score: 0, p2Score: 0)
+    @Published var game = MultiplayerGame(p1Id: "", p2Id: "", p1Score: 0, p2Score: 0)
     
     
-    func subscribeToGame(id : String){
+    func subscribeToGame(id : String?){
+        guard let id = id else {return}
+        
         db.collection("games").document(id)
             .addSnapshotListener { documentSnapshot, error in
                 guard let document = documentSnapshot else{
                     print("error fetching document")
                     return
                 }
-                guard let data = document.data() else{
-                    print("Data empty")
-                    return
-                }
-                
                 let result = Result{
                     try document.data(as: MultiplayerGame.self)
                 }
@@ -39,5 +37,19 @@ class MultiplayerVM : ObservableObject{
                 }
             }
  
+    }
+    func addGame(){
+        let game = MultiplayerGame(p1Id: "", p2Id: "", p1Score: 0, p2Score: 0)
+        
+        if let user = user{
+            do{
+                _ = try db.collection("games").document(user.uid).setData(from: game)
+            }catch{
+                print("Error creating game")
+            }
+        }
+        
+        
+        
     }
 }
