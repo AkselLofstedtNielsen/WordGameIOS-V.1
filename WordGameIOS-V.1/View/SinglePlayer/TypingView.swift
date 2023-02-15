@@ -13,13 +13,13 @@ import SwiftUI
         var body: some View {
             VStack{
                 
-                if typingVM.gameOver{
+                if !typingVM.gameRunning{
                     typeHereAnimation()
                 }
                 
                 TextField("", text: $typingVM.userText)
                     .onTapGesture {
-                        if typingVM.gameOver{
+                        if !typingVM.gameRunning{
                             typingVM.restartGame()
                         }
                         

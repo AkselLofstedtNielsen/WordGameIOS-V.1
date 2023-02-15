@@ -14,7 +14,7 @@ struct TopBarView: View {
     var body: some View {
         HStack{
            
-            if !typingVM.gameOver{
+            if typingVM.gameRunning{
                 Text("Life left: \(typingVM.playerLife)")
                     .foregroundColor(.purple)
                 Spacer()
@@ -35,7 +35,7 @@ struct TopBarView: View {
             
             Spacer()
             
-            if typingVM.gameOver{
+            if !typingVM.gameRunning{
                 Button(action: {
                     typingVM.restartGame()
                 }) {

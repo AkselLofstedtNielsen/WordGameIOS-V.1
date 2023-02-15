@@ -13,7 +13,7 @@ class SinglePlayerVM : ObservableObject {
 
     @Published var timePlayed = 0.0
     @Published var isTimerRunning = false
-    @Published var gameOver = true
+    @Published var gameRunning = false
     @Published var WPS : Double = 0.0
     
     @Published var userText = ""
@@ -104,7 +104,7 @@ class SinglePlayerVM : ObservableObject {
       func stopGame() {
           timePlayed = 0
           isTimerRunning = false
-          gameOver = true
+          gameRunning = false
       }
       
       func restartGame() {
@@ -112,7 +112,7 @@ class SinglePlayerVM : ObservableObject {
           list.fillFromFB()
           list.startPositions()
           
-          gameOver = false
+          gameRunning = true
           isTimerRunning = true
           timePlayed = 0.0
           playerLife = 3

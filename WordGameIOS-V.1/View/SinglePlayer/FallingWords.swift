@@ -15,7 +15,7 @@ struct FallingWords: View {
 
     var body: some View {
         ZStack{
-            if !typingVM.gameOver{
+            if typingVM.gameRunning{
                 ForEach(typingVM.list.words){ wrd in
                     WordView(typingVM: typingVM, word: wrd)
                 }
