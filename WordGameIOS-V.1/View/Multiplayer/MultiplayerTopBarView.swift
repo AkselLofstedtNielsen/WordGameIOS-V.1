@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct MultiplayerTopBarView: View {
-    @ObservedObject var game : MultiplayerVM
+    @ObservedObject var vm : MultiplayerVM
     
     var body: some View {
         HStack{
-            Text("p1 id: \(game.game.p1Id)")
+            Text("p1 life: \(vm.game.p1Life)")
             Spacer()
-            Text("p1 score: \(game.game.p1Score)")
+            Text("p1 score: \(vm.game.p1Score)")
             Spacer()
-            Text("p2 id: \(game.game.p2Id)")
+            Text("p2 life: \(vm.game.p2Life)")
             Spacer()
-            Text("p2 score: \(game.game.p2Score)")
+            Text("p2 score: \(vm.game.p2Score)")
         }
     }
 }

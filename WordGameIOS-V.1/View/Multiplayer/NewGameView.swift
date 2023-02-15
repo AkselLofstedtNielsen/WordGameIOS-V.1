@@ -12,10 +12,28 @@ struct NewGameView: View {
     
     var body: some View {
         VStack{
-            MultiplayerTopBarView(game: vm)
+            MultiplayerTopBarView(vm: vm)
             Spacer()
-            
-                .background(Color.black)
+            Button(action:{
+                checkStuff()
+                vm.decreasePlayerLife(player: 1)
+            }){
+                Text("Decrease p1 life")
+            }
+            Button(action:{
+                vm.increasePlayerScore(player: 1)
+             
+            }){
+                Text("Increase p1 score")
+            }
+            Spacer()
+        }
+        
+    }
+    
+    func checkStuff(){
+        if vm.game.p1Life == 0{
+            print("p1 lost")
         }
     }
     

@@ -10,11 +10,19 @@ import FirebaseAuth
 import FirebaseFirestore
 import Firebase
 
+
+//TODO: Fixa om vm till passande
+//TODO: Fixa om så man kan joina games med email på spelare 1
+//TODO: Fixa snapshot listener så de updateras ständigt
+
 class MultiplayerVM : ObservableObject{
     let db = Firestore.firestore()
     let user = Auth.auth().currentUser
     
-    @Published var game = MultiplayerGame(p1Id: "", p2Id: "", p1Score: 0, p2Score: 0)
+    @Published var game = MultiplayerGame(p1Id: "", p2Id: "", p1Score: 0, p2Score: 0,p1Life: 3,p2Life: 3, gameId: 0)
+    @Published var gameId : String = ""
+    @Published var joinedGame = false
+    
     @Published var playerLife : Int = 3
     @Published var timePlayed = 0.0
     @Published var isTimerRunning = false
@@ -31,6 +39,9 @@ class MultiplayerVM : ObservableObject{
     @Published var gameSpeed : Double = 9.0
     
     
+    init(){
+        subscribeToGame()
+    }
     
     func testing(letter: Character) {
         if wordFound{
@@ -127,47 +138,51 @@ class MultiplayerVM : ObservableObject{
         
     }
     
-    
-    func subscribeToGame(id : String?){
-        guard let id = id else {return}
-        
-        db.collection("games").document(id)
-            .addSnapshotListener { documentSnapshot, error in
-                guard let document = documentSnapshot else{
-                    print("error fetching document")
-                    return
-                }
-                let result = Result{
-                    try document.data(as: MultiplayerGame.self)
-                }
-                switch result {
-                case .success(let game) :
-                    self.game = game
-                case .failure(let error) :
-                    print("error : \(error)")
-                }
+    func subscribeToGame(){
+        let documents = db.collection("games").whereField("gameId", isEqualTo: Int(gameId))
+
+        documents.addSnapshotListener{snapshot, err in
+            if let err = err{
+                print("err : \(err)")
             }
- 
-    }
-    func addGame(){
-        let game = MultiplayerGame(p1Id: "", p2Id: "", p1Score: 0, p2Score: 0)
-        
-        if let user = user{
-            do{
-                _ = try db.collection("games").document(user.uid).setData(from: game)
-                subscribeToGame(id: user.uid)
-                setPlayerName(player: 1)
-            }catch{
-                print("Error creating game")
+            guard let docs = snapshot?.documents else {return}
+            
+            for doc in docs {
+                let result = Result{
+                    try doc.data(as: MultiplayerGame.self)
+                }
+                switch result{
+                case.success(let game):
+                    self.game = game
+                case.failure(let err):
+                    print("err: \(err)")
+                }
             }
         }
     }
+    func addGame()-> Int{
+        
+        guard let user = user else {return 0}
+        
+        let gameId = Int.random(in: 1000...9999)
+        
+        let game = MultiplayerGame(p1Id: user.email ?? "No user", p2Id: "", p1Score: 0, p2Score: 0,p1Life: 3,p2Life: 3,gameId: gameId)
+        
+        do{
+            _ = try db.collection("games").document(user.uid).setData(from: game)
+        }catch{
+            print("Error creating game")
+        }
+        
+        return gameId
+    }
     func setPlayerName(player : Int){
-        guard let user = user else {return}
+        if player == 2{
+            guard let user = user else {return}
             let ref = db.collection("games").document(user.uid)
             
             ref.updateData([
-                "p\(player)Id" : user.email
+                "p\(player)Id" : user.email ?? "No user"
             ]) { err in
                 if let err = err{
                     print("Error updating: \(err)")
@@ -176,9 +191,40 @@ class MultiplayerVM : ObservableObject{
                 }
                 
             }
+        }else{
+            print("Invalid player")
+        }
     }
-    func updatePlayerScore(){
+    func decreasePlayerLife(player : Int){
+        let ref = db.collection("games").whereField("gameId", isEqualTo: Int(gameId))
         
+        ref.getDocuments(completion: {snapshot, err in
+            if let err = err{
+                print("err: \(err)")
+            }
+            guard let docs = snapshot?.documents else {return}
+            
+            for doc in docs{
+                let ref = doc.reference
+                ref.updateData(["p\(player)Life" : FieldValue.increment(Int64(-1))])
+            }
+        })
+
+    }
+    func increasePlayerScore(player : Int){
+        let ref = db.collection("games").whereField("gameId", isEqualTo: Int(gameId))
+        
+        ref.getDocuments(completion: {snapshot, err in
+            if let err = err{
+                print("err: \(err)")
+            }
+            guard let docs = snapshot?.documents else {return}
+            
+            for doc in docs{
+                let ref = doc.reference
+                ref.updateData(["p\(player)Score" : FieldValue.increment(Int64(1))])
+            }
+        })
     }
   }
 

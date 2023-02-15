@@ -16,5 +16,11 @@ struct MultiplayerGame: Codable{
     var p1Score : Int
     var p2Score : Int
     
+    var p1Life : Int
+    var p2Life : Int
+    
+    var gameId : Int
+    
+    
     
 }
