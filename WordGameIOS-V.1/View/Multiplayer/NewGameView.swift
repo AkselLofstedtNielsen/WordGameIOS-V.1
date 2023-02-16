@@ -11,31 +11,17 @@ struct NewGameView: View {
     @ObservedObject var vm : MultiplayerVM
     
     var body: some View {
-        VStack{
-            MultiplayerTopBarView(vm: vm)
-            Spacer()
-            Button(action:{
-                checkStuff()
-                vm.decreasePlayerLife(player: 1)
-            }){
-                Text("Decrease p1 life")
+        ZStack{
+            VStack{
+                MultiplayerTopBarView(vm: vm)
+                Spacer()
+                MultiplayerFallingWords(vm: vm)
+                Spacer()
+                MultiplayerTypingView(vm: vm)
             }
-            Button(action:{
-                vm.increasePlayerScore(player: 1)
-             
-            }){
-                Text("Increase p1 score")
-            }
-            Spacer()
         }
+        .background(Color.black)
+        
         
     }
-    
-    func checkStuff(){
-        if vm.game.p1Life == 0{
-            print("p1 lost")
-        }
-    }
-    
-    
 }

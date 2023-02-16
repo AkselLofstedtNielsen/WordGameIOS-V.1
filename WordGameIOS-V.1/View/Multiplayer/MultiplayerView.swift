@@ -43,6 +43,7 @@ struct MultiplayerView: View {
                 
                 
                 Button(action:{
+                    vm.player = 1
                     var id = vm.addGame()
                     vm.gameId = id
                     vm.subscribeToGame()
@@ -57,8 +58,9 @@ struct MultiplayerView: View {
                 TextField("Enter game room key", text: $gameRoom)
                     .textFieldStyle(.roundedBorder)
                 Button(action:{
+                    vm.player = 2
                     vm.gameId = gameRoom
-//                    vm.setPlayerName(player: 2)
+                    vm.subscribeToGame()
                     newGame.toggle()
                 }){
                     Text("Join")

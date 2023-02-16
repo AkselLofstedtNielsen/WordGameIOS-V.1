@@ -13,7 +13,7 @@ import Firebase
 
 //TODO: Fixa om vm till passande
 //TODO: Fixa om så man kan joina games med email på spelare 1
-
+//TODO: Fixa player names: Alltså starta game när båda spelare e med
 
 class MultiplayerVM : ObservableObject{
     let db = Firestore.firestore()
@@ -22,6 +22,7 @@ class MultiplayerVM : ObservableObject{
     @Published var game = MultiplayerGame(p1Id: "", p2Id: "", p1Score: 0, p2Score: 0,p1Life: 3,p2Life: 3, gameId: 0)
     @Published var gameId : String = ""
     @Published var joinedGame = false
+    @Published var player = 0 //1 or 2
     
     @Published var timePlayed = 0.0
     @Published var isTimerRunning = false
@@ -114,13 +115,13 @@ class MultiplayerVM : ObservableObject{
       }
       
       func restartGame() {
-//          list.fillFromFB()
-//          list.startPositions()
-//
-//          gameRunning = true
-//          isTimerRunning = true
-//          timePlayed = 0.0
-//          playerLife = 3
+          list.fillFromFB()
+          list.startPositions()
+
+          gameRunning = true
+          isTimerRunning = true
+          timePlayed = 0.0
+
       }
     func checkDead(){
 //        if playerLife == 0{
@@ -188,7 +189,7 @@ class MultiplayerVM : ObservableObject{
             print("Invalid player")
         }
     }
-    func decreasePlayerLife(player : Int){
+    func decreasePlayerLife(){
         let ref = db.collection("games").whereField("gameId", isEqualTo: Int(gameId))
         
         ref.getDocuments(completion: {snapshot, err in
@@ -199,12 +200,12 @@ class MultiplayerVM : ObservableObject{
             
             for doc in docs{
                 let ref = doc.reference
-                ref.updateData(["p\(player)Life" : FieldValue.increment(Int64(-1))])
+                ref.updateData(["p\(self.player)Life" : FieldValue.increment(Int64(-1))])
             }
         })
 
     }
-    func increasePlayerScore(player : Int){
+    func increasePlayerScore(){
         let ref = db.collection("games").whereField("gameId", isEqualTo: Int(gameId))
         
         ref.getDocuments(completion: {snapshot, err in
@@ -215,7 +216,7 @@ class MultiplayerVM : ObservableObject{
             
             for doc in docs{
                 let ref = doc.reference
-                ref.updateData(["p\(player)Score" : FieldValue.increment(Int64(1))])
+                ref.updateData(["p\(self.player)Score" : FieldValue.increment(Int64(1))])
             }
         })
     }

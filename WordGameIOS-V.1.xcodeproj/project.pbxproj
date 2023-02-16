@@ -39,6 +39,9 @@
 		5CAC6EC7299673BE0065A7EB /* MultiplayerTopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAC6EC6299673BE0065A7EB /* MultiplayerTopBarView.swift */; };
 		5CAC6EC9299674B10065A7EB /* MultiplayerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAC6EC8299674B10065A7EB /* MultiplayerVM.swift */; };
 		5CAC6ECB299A84D90065A7EB /* MultiplayerGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAC6ECA299A84D90065A7EB /* MultiplayerGame.swift */; };
+		5CAC6ECD299E586E0065A7EB /* MultiplayerFallingWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAC6ECC299E586E0065A7EB /* MultiplayerFallingWord.swift */; };
+		5CAC6ECF299E587F0065A7EB /* MultiplayerTypingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAC6ECE299E587F0065A7EB /* MultiplayerTypingView.swift */; };
+		5CAC6ED1299E58FC0065A7EB /* MultiplayerWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAC6ED0299E58FC0065A7EB /* MultiplayerWordView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +93,9 @@
 		5CAC6EC6299673BE0065A7EB /* MultiplayerTopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerTopBarView.swift; sourceTree = "<group>"; };
 		5CAC6EC8299674B10065A7EB /* MultiplayerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerVM.swift; sourceTree = "<group>"; };
 		5CAC6ECA299A84D90065A7EB /* MultiplayerGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerGame.swift; sourceTree = "<group>"; };
+		5CAC6ECC299E586E0065A7EB /* MultiplayerFallingWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerFallingWord.swift; sourceTree = "<group>"; };
+		5CAC6ECE299E587F0065A7EB /* MultiplayerTypingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerTypingView.swift; sourceTree = "<group>"; };
+		5CAC6ED0299E58FC0065A7EB /* MultiplayerWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerWordView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,6 +264,9 @@
 				5CAC6EC229964D720065A7EB /* MultiplayerView.swift */,
 				5CAC6EC6299673BE0065A7EB /* MultiplayerTopBarView.swift */,
 				5CAC6EC4299673900065A7EB /* NewGameView.swift */,
+				5CAC6ECC299E586E0065A7EB /* MultiplayerFallingWord.swift */,
+				5CAC6ECE299E587F0065A7EB /* MultiplayerTypingView.swift */,
+				5CAC6ED0299E58FC0065A7EB /* MultiplayerWordView.swift */,
 			);
 			path = Multiplayer;
 			sourceTree = "<group>";
@@ -407,6 +416,7 @@
 				5C8A860F295FA669004AC41E /* ContentView.swift in Sources */,
 				5C97460A29925C2100EBE317 /* FirebaseTestWord.swift in Sources */,
 				5C9E9D04296C3F940072ABE9 /* Word.swift in Sources */,
+				5CAC6ED1299E58FC0065A7EB /* MultiplayerWordView.swift in Sources */,
 				5C8A860D295FA669004AC41E /* WordGameIOS_V_1App.swift in Sources */,
 				5CAC6ECB299A84D90065A7EB /* MultiplayerGame.swift in Sources */,
 				5C9745B7298D2D8D00EBE317 /* Extension.swift in Sources */,
@@ -414,6 +424,8 @@
 				5C9745B5298BCCD800EBE317 /* FallingWords.swift in Sources */,
 				5CAC6EC7299673BE0065A7EB /* MultiplayerTopBarView.swift in Sources */,
 				5C9746122993B13F00EBE317 /* StartScreenView.swift in Sources */,
+				5CAC6ECF299E587F0065A7EB /* MultiplayerTypingView.swift in Sources */,
+				5CAC6ECD299E586E0065A7EB /* MultiplayerFallingWord.swift in Sources */,
 				5CAC6EBC299504B20065A7EB /* LogInScreen.swift in Sources */,
 				5CAC6EC9299674B10065A7EB /* MultiplayerVM.swift in Sources */,
 				5C8B58CF297FF3B10021A556 /* TypingView.swift in Sources */,
