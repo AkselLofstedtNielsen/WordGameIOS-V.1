@@ -12,7 +12,6 @@ import Firebase
 
 
 //TODO: Fixa om vm till passande
-//TODO: Fixa om så man kan joina games med email på spelare 1
 //TODO: Fixa player names: Alltså starta game när båda spelare e med
 
 class MultiplayerVM : ObservableObject{
@@ -27,7 +26,6 @@ class MultiplayerVM : ObservableObject{
     @Published var timePlayed = 0.0
     @Published var isTimerRunning = false
     @Published var gameRunning = false
-    @Published var WPS : Double = 0.0
     
     @Published var userText = ""
     @Published var wordFound = false
@@ -57,14 +55,18 @@ class MultiplayerVM : ObservableObject{
                     resetWord()
                     list.addToTyped(inputWord: list.words[index])
                     list.words.remove(at: index)
+                    increasePlayerScore()
                     
                     if list.gameWords.isEmpty && list.words.isEmpty{
                     
 //                        stopGame()
+                        //TODO: levelup, gamespeed snabbare varje gång listorna är tomma
                         
                         for word in list.typed{
                             print("\(word.word) + \(word.dead)")
                         }
+                        gameSpeed -= 2.0
+                        restartGame()
                     }
                     
                 }else{
@@ -106,14 +108,6 @@ class MultiplayerVM : ObservableObject{
           userText = ""
           wordFound = false
       }
-      
-
-      func stopGame() {
-//          timePlayed = 0
-//          isTimerRunning = false
-//          gameRunning = false
-      }
-      
       func restartGame() {
           list.fillFromFB()
           list.startPositions()
@@ -124,11 +118,16 @@ class MultiplayerVM : ObservableObject{
 
       }
     func checkDead(){
-//        if playerLife == 0{
-//            list.clearAll()
-//            stopGame()
-//
-//        }
+        if game.p1Life == 0{
+            print("Player 2 won")
+            stopGame()
+        }else if game.p2Life == 0{
+            print("Player 1 won")
+            stopGame()
+        }
+        
+
+        
         
     }
     
@@ -159,7 +158,7 @@ class MultiplayerVM : ObservableObject{
         
         let createGameId = Int.random(in: 1000...9999)
         
-        let newGame = MultiplayerGame(p1Id: user.email ?? "No user", p2Id: "", p1Score: 100, p2Score: 0,p1Life: 3,p2Life: 3,gameId: createGameId)
+        let newGame = MultiplayerGame(p1Id: user.email ?? "No user", p2Id: "", p1Score: 0, p2Score: 0,p1Life: 3,p2Life: 3,gameId: createGameId)
         
         do{
             _ = try db.collection("games").document(user.uid).setData(from: newGame)
@@ -211,6 +210,28 @@ class MultiplayerVM : ObservableObject{
         
         restartGame()
         
+    }
+    func stopGame(){
+        list.clearAll()
+        timePlayed = 0
+        isTimerRunning = false
+        gameRunning = false
+        
+        let ref = db.collection("games").whereField("gameId", isEqualTo: Int(gameId))
+        
+        ref.getDocuments(completion: {snapshot, err in
+            if let err = err{
+                print("err: \(err)")
+            }
+            guard let docs = snapshot?.documents else {return}
+            
+            for doc in docs{
+                let ref = doc.reference
+                ref.updateData(["isGameRunning" : false])
+            }
+        })
+        
+        restartGame()
     }
     func playerJoined(){
         let ref = db.collection("games").whereField("gameId", isEqualTo: Int(gameId))
