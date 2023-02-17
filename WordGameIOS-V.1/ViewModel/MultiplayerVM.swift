@@ -154,21 +154,26 @@ class MultiplayerVM : ObservableObject{
             }
         }
     }
-    func addGame()-> String{
+    func addGame(){
+        guard let user = user else {return}
         
-        guard let user = user else {return ""}
+        let createGameId = Int.random(in: 1000...9999)
         
-        let gameId = Int.random(in: 1000...9999)
-        
-        let game = MultiplayerGame(p1Id: user.email ?? "No user", p2Id: "", p1Score: 100, p2Score: 0,p1Life: 3,p2Life: 3,gameId: gameId)
+        let newGame = MultiplayerGame(p1Id: user.email ?? "No user", p2Id: "", p1Score: 100, p2Score: 0,p1Life: 3,p2Life: 3,gameId: createGameId)
         
         do{
-            _ = try db.collection("games").document(user.uid).setData(from: game)
+            _ = try db.collection("games").document(user.uid).setData(from: newGame)
         }catch{
             print("Error creating game")
         }
         
-        return String(gameId)
+        player = 1
+        gameId = String(createGameId)
+    }
+    func joinGame(){
+        player = 2
+        playerJoined()
+        subscribeToGame()
     }
     func setPlayerName(player : Int){
         if player == 2{
@@ -188,6 +193,39 @@ class MultiplayerVM : ObservableObject{
         }else{
             print("Invalid player")
         }
+    }
+    func startGame(){
+        let ref = db.collection("games").whereField("gameId", isEqualTo: Int(gameId))
+        
+        ref.getDocuments(completion: {snapshot, err in
+            if let err = err{
+                print("err: \(err)")
+            }
+            guard let docs = snapshot?.documents else {return}
+            
+            for doc in docs{
+                let ref = doc.reference
+                ref.updateData(["isGameRunning" : true])
+            }
+        })
+        
+        restartGame()
+        
+    }
+    func playerJoined(){
+        let ref = db.collection("games").whereField("gameId", isEqualTo: Int(gameId))
+        
+        ref.getDocuments(completion: {snapshot, err in
+            if let err = err{
+                print("err: \(err)")
+            }
+            guard let docs = snapshot?.documents else {return}
+            
+            for doc in docs{
+                let ref = doc.reference
+                ref.updateData(["waitingForPlayer" : false])
+            }
+        })
     }
     func decreasePlayerLife(){
         let ref = db.collection("games").whereField("gameId", isEqualTo: Int(gameId))

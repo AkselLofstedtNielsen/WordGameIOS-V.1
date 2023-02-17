@@ -18,12 +18,6 @@ import SwiftUI
                 }
                 
                 TextField("", text: $vm.userText)
-                    .onTapGesture {
-                        if !vm.gameRunning{
-                            vm.restartGame()
-                        }
-                        
-                    }
                     .frame(height: 75).border(.purple)
                     .textFieldStyle(.automatic)
                     .multilineTextAlignment(.center)
@@ -40,6 +34,11 @@ import SwiftUI
                             vm.wordFound = false
                         }
                         
+                    }
+                    .onTapGesture {
+                        if !vm.gameRunning{
+                            vm.startGame()
+                        }
                     }
             }
         }

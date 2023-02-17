@@ -30,6 +30,7 @@ struct MultiplayerTopBarView: View {
                 }
 
             }
+
             HStack{
                 Text("p1<3: \(vm.game.p1Life)")
                     .foregroundColor(.purple)

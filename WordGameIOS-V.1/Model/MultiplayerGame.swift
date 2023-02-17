@@ -21,6 +21,8 @@ struct MultiplayerGame: Codable{
     
     var gameId : Int
     
+    var waitingForPlayer : Bool = true
     
+    var isGameRunning : Bool = false
     
 }
