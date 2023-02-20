@@ -25,6 +25,9 @@ class SinglePlayerVM : ObservableObject {
     
     @Published var gameSpeed : Double = 9.0
     
+    @Published var gameWon = false
+    @Published var gameLost = false
+    
 
     
 
@@ -48,6 +51,7 @@ class SinglePlayerVM : ObservableObject {
                     
                     if list.gameWords.isEmpty && list.words.isEmpty{
                     
+                        gameWon = true
                         WPS = getWPS()
                         stopGame()
                         
@@ -83,9 +87,10 @@ class SinglePlayerVM : ObservableObject {
     func addWordToGame(){
         let check: Double = timePlayed .truncatingRemainder(dividingBy: 2.0)
         let checkRounded = check.roundToDecimal(1)
-
+        print(": \(checkRounded)")
         if  checkRounded == 0.1{
-
+            list.addRandomWord()
+        }else if checkRounded == 1.1{
             list.addRandomWord()
         }
     }
@@ -108,7 +113,8 @@ class SinglePlayerVM : ObservableObject {
       }
       
       func restartGame() {
-          //Fill from firebase
+          gameWon = false
+          gameLost = false
           list.fillFromFB()
           list.startPositions()
           
@@ -121,6 +127,7 @@ class SinglePlayerVM : ObservableObject {
         if playerLife == 0{
             list.clearAll()
             stopGame()
+            gameLost = true
             
         }
         

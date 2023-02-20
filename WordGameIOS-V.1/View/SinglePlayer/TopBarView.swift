@@ -35,17 +35,6 @@ struct TopBarView: View {
             
             Spacer()
             
-            if !typingVM.gameRunning{
-                Button(action: {
-                    typingVM.restartGame()
-                }) {
-                    Text("Play again")
-                }
-                .buttonStyle(.bordered)
-            }
-            
-            Spacer()
-            
         }
     }
     

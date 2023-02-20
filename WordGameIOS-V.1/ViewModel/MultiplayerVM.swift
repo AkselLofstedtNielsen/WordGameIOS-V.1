@@ -36,6 +36,9 @@ class MultiplayerVM : ObservableObject{
     
     @Published var gameSpeed : Double = 9.0
     
+    @Published var gameEnded = false
+    @Published var winner = 0
+    
     
     init(){
         subscribeToGame()
@@ -58,8 +61,7 @@ class MultiplayerVM : ObservableObject{
                     increasePlayerScore()
                     
                     if list.gameWords.isEmpty && list.words.isEmpty{
-                    
-//                        stopGame()
+                        
                         //TODO: levelup, gamespeed snabbare varje gång listorna är tomma
                         
                         for word in list.typed{
@@ -92,48 +94,53 @@ class MultiplayerVM : ObservableObject{
             }
         }
         
-      }
+    }
     func addWordToGame(){
         let check: Double = timePlayed .truncatingRemainder(dividingBy: 2.0)
         let checkRounded = check.roundToDecimal(1)
-
+        
         if  checkRounded == 0.1{
-
+            
             list.addRandomWord()
         }
     }
     
-      func resetWord() {
-          letterPosition = 1
-          userText = ""
-          wordFound = false
-      }
-      func restartGame() {
-          list.fillFromFB()
-          list.startPositions()
-
-          gameRunning = true
-          isTimerRunning = true
-          timePlayed = 0.0
-
-      }
+    func resetWord() {
+        letterPosition = 1
+        userText = ""
+        wordFound = false
+    }
+    func restartGame() {
+        list.fillFromFB()
+        list.startPositions()
+        
+        gameRunning = true
+        isTimerRunning = true
+        timePlayed = 0.0
+        
+    }
     func checkDead(){
         if game.p1Life == 0{
-            print("Player 2 won")
+            winner = 2
             stopGame()
         }else if game.p2Life == 0{
-            print("Player 1 won")
+            winner = 1
             stopGame()
         }
-        
-
-        
-        
+    }
+    func printWinner()-> String{
+        if player == 1 && winner == 1{
+            return "Player 1 Won!"
+        }else if player == 2 && winner == 2{
+            return "Player 2 Won!"
+        }else{
+            return "Better luck next time!"
+        }
     }
     
     func subscribeToGame(){
         let documents = db.collection("games").whereField("gameId", isEqualTo: Int(gameId))
-
+        
         documents.addSnapshotListener{snapshot, err in
             if let err = err{
                 print("err : \(err)")
@@ -216,6 +223,7 @@ class MultiplayerVM : ObservableObject{
         timePlayed = 0
         isTimerRunning = false
         gameRunning = false
+        gameEnded = true
         
         let ref = db.collection("games").whereField("gameId", isEqualTo: Int(gameId))
         
@@ -231,7 +239,6 @@ class MultiplayerVM : ObservableObject{
             }
         })
         
-        restartGame()
     }
     func playerJoined(){
         let ref = db.collection("games").whereField("gameId", isEqualTo: Int(gameId))
@@ -262,7 +269,7 @@ class MultiplayerVM : ObservableObject{
                 ref.updateData(["p\(self.player)Life" : FieldValue.increment(Int64(-1))])
             }
         })
-
+        
     }
     func increasePlayerScore(){
         let ref = db.collection("games").whereField("gameId", isEqualTo: Int(gameId))
@@ -279,6 +286,6 @@ class MultiplayerVM : ObservableObject{
             }
         })
     }
-  }
+}
 
 

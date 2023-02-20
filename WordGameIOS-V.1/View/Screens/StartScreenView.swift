@@ -18,7 +18,7 @@ struct StartScreenView: View {
     
     var body: some View {
         if singlePlayerShow{
-            GameView(vm: typingVM)
+            GameView(vm: typingVM,singlePlayerShow: $singlePlayerShow)
         }
         else if logInShow{
             LogInScreen(logInShow: $logInShow)

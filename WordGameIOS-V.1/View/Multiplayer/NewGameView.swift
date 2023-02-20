@@ -9,6 +9,7 @@ import SwiftUI
 
 struct NewGameView: View {
     @ObservedObject var vm : MultiplayerVM
+    @Binding var newGameShow : Bool
     
     var body: some View {
         ZStack{
@@ -16,6 +17,13 @@ struct NewGameView: View {
                     VStack{
                         MultiplayerTopBarView(vm: vm)
                         Spacer()
+                            .alert(vm.printWinner(), isPresented: $vm.gameEnded){
+                                Button(action:{
+                                    newGameShow.toggle()
+                                }){
+                                    Text("Return to homescreen")
+                                }
+                            }
                         MultiplayerFallingWords(vm: vm)
                         Spacer()
                         MultiplayerTypingView(vm: vm)

@@ -28,7 +28,6 @@ struct MultiplayerWordView : View {
                     if contains{
                         vm.list.words.removeAll(where: {$0.id == word.id})
                         vm.decreasePlayerLife()
-                        vm.checkDead()
                     }
                 }
             })

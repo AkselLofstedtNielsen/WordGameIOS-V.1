@@ -22,6 +22,7 @@ struct MultiplayerTopBarView: View {
                             if vm.isTimerRunning{
                                 vm.timePlayed += 0.1
                                 vm.addWordToGame()
+                                vm.checkDead()
                             }
                         }
                 }else{

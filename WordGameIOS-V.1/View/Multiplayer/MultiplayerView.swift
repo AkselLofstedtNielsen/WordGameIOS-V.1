@@ -18,7 +18,7 @@ struct MultiplayerView: View {
     
     var body: some View {
         if newGame{
-            NewGameView(vm: vm)
+            NewGameView(vm: vm, newGameShow: $newGame)
         }else{
             VStack{
                 HStack{
