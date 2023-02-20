@@ -10,8 +10,8 @@ import FirebaseFirestoreSwift
 
 struct MultiplayerGame: Codable{
     
-    var p1Id : String
-    var p2Id : String
+    var p1Ready : Bool = false
+    var p2Ready : Bool = false
     
     var p1Score : Int
     var p2Score : Int

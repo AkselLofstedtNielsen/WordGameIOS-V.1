@@ -33,20 +33,25 @@ struct MultiplayerTopBarView: View {
             }
 
             HStack{
-                Text("p1<3: \(vm.game.p1Life)")
+                ForEach(0..<vm.game.p1Life, id: \.self){_ in
+                    Image(systemName: "heart")
+                        .foregroundColor(.purple)
+                }
+                
+                Text("Words: \(vm.game.p1Score)")
                     .foregroundColor(.purple)
+                
                 Spacer()
                 
-                Text("p1+: \(vm.game.p1Score)")
-                    .foregroundColor(.purple)
-                Spacer()
+                ForEach(0..<vm.game.p2Life, id: \.self){_ in
+                    Image(systemName: "heart")
+                        .foregroundColor(.yellow)
+                }
                 
-                Text("p2<3: \(vm.game.p2Life)")
-                    .foregroundColor(.purple)
-                Spacer()
+                Text("Words: \(vm.game.p2Score)")
+                    .foregroundColor(.yellow)
                 
-                Text("p2+: \(vm.game.p2Score)")
-                    .foregroundColor(.purple)
+                
             }
 
         }

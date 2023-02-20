@@ -9,11 +9,12 @@ import SwiftUI
 
     struct MultiplayerTypingView: View {
         @ObservedObject var vm : MultiplayerVM
+        @State var typeAnimate = true
         
         var body: some View {
             VStack{
                 
-                if !vm.gameRunning{
+                if typeAnimate{
                     typeHereAnimation()
                 }
                 
@@ -37,7 +38,8 @@ import SwiftUI
                     }
                     .onTapGesture {
                         if !vm.gameRunning{
-                            vm.startGame()
+                            typeAnimate = false
+                            vm.makePlayerReady()
                         }
                     }
             }

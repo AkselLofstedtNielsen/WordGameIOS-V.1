@@ -18,7 +18,7 @@ class MultiplayerVM : ObservableObject{
     let db = Firestore.firestore()
     let user = Auth.auth().currentUser
     
-    @Published var game = MultiplayerGame(p1Id: "", p2Id: "", p1Score: 0, p2Score: 0,p1Life: 3,p2Life: 3, gameId: 0)
+    @Published var game = MultiplayerGame(p1Score: 0, p2Score: 0,p1Life: 3,p2Life: 3, gameId: 0)
     @Published var gameId : String = ""
     @Published var joinedGame = false
     @Published var player = 0 //1 or 2
@@ -146,7 +146,7 @@ class MultiplayerVM : ObservableObject{
                 print("err : \(err)")
             }
             guard let docs = snapshot?.documents else {return}
-            
+
             for doc in docs {
                 let result = Result{
                     try doc.data(as: MultiplayerGame.self)
@@ -157,15 +157,19 @@ class MultiplayerVM : ObservableObject{
                 case.failure(let err):
                     print("err: \(err)")
                 }
+                if !self.gameRunning && !self.gameEnded{
+                    self.startGame()
+                }
             }
         }
+      
     }
     func addGame(){
         guard let user = user else {return}
         
         let createGameId = Int.random(in: 1000...9999)
         
-        let newGame = MultiplayerGame(p1Id: user.email ?? "No user", p2Id: "", p1Score: 0, p2Score: 0,p1Life: 3,p2Life: 3,gameId: createGameId)
+        let newGame = MultiplayerGame(p1Score: 0, p2Score: 0,p1Life: 3,p2Life: 3,gameId: createGameId)
         
         do{
             _ = try db.collection("games").document(user.uid).setData(from: newGame)
@@ -181,42 +185,24 @@ class MultiplayerVM : ObservableObject{
         playerJoined()
         subscribeToGame()
     }
-    func setPlayerName(player : Int){
-        if player == 2{
-            guard let user = user else {return}
-            let ref = db.collection("games").document(user.uid)
-            
-            ref.updateData([
-                "p\(player)Id" : user.email ?? "No user"
-            ]) { err in
-                if let err = err{
-                    print("Error updating: \(err)")
-                } else{
-                    print("Player name updated")
-                }
-                
-            }
-        }else{
-            print("Invalid player")
-        }
-    }
     func startGame(){
-        let ref = db.collection("games").whereField("gameId", isEqualTo: Int(gameId))
-        
-        ref.getDocuments(completion: {snapshot, err in
-            if let err = err{
-                print("err: \(err)")
-            }
-            guard let docs = snapshot?.documents else {return}
+        if game.p1Ready && game.p2Ready{
+            let ref = db.collection("games").whereField("gameId", isEqualTo: Int(gameId))
             
-            for doc in docs{
-                let ref = doc.reference
-                ref.updateData(["isGameRunning" : true])
-            }
-        })
-        
-        restartGame()
-        
+            ref.getDocuments(completion: {snapshot, err in
+                if let err = err{
+                    print("err: \(err)")
+                }
+                guard let docs = snapshot?.documents else {return}
+                
+                for doc in docs{
+                    let ref = doc.reference
+                    ref.updateData(["isGameRunning" : true])
+                }
+            })
+            
+            restartGame()
+        }
     }
     func stopGame(){
         list.clearAll()
@@ -285,6 +271,24 @@ class MultiplayerVM : ObservableObject{
                 ref.updateData(["p\(self.player)Score" : FieldValue.increment(Int64(1))])
             }
         })
+    }
+    func makePlayerReady(){
+        let ref = db.collection("games").whereField("gameId", isEqualTo: Int(gameId))
+        
+        ref.getDocuments(completion: {snapshot, err in
+            if let err = err{
+                print("err: \(err)")
+            }
+            guard let docs = snapshot?.documents else {return}
+            
+            for doc in docs{
+                let ref = doc.reference
+                ref.updateData(["p\(self.player)Ready" : true])
+            }
+        })
+    }
+    func checkIfReady(){
+        
     }
 }
 

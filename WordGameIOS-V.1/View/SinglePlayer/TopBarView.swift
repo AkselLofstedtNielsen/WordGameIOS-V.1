@@ -15,8 +15,10 @@ struct TopBarView: View {
         HStack{
            
             if typingVM.gameRunning{
-                Text("Life left: \(typingVM.playerLife)")
-                    .foregroundColor(.purple)
+                ForEach(0..<typingVM.playerLife, id: \.self){_ in
+                    Image(systemName: "heart")
+                        .foregroundColor(.purple)
+                }
                 Spacer()
                 Text("Time: \(typingVM.timePlayed)")
                     .bold()
