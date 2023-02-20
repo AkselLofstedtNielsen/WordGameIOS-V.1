@@ -19,11 +19,13 @@ struct LogInScreen: View {
         VStack(alignment: .leading,spacing: 15){
           Spacer()
             
-            TextField("Email", text: $email, prompt: Text("Email").foregroundColor(.blue))
+            TextField("Email", text: $email, prompt: Text("Email").foregroundColor(.purple))
                 .padding(10)
+                .foregroundColor(.white)
                 .overlay{
                     RoundedRectangle(cornerRadius: 7)
                         .stroke(.blue, lineWidth: 3)
+                        
                 }
                 .padding(.horizontal)
             
@@ -32,11 +34,13 @@ struct LogInScreen: View {
                     if showPassword{
                         TextField("PassWord",
                                   text: $password,
-                                  prompt: Text("Password").foregroundColor(.red))
+                                  prompt: Text("Password").foregroundColor(.purple))
+                        .foregroundColor(.white)
                     }else{
                         SecureField("Password",
                                     text: $password,
-                                    prompt: Text("Password").foregroundColor(.red))
+                                    prompt: Text("Password").foregroundColor(.purple))
+                        .foregroundColor(.white)
                     }
                 }
                 .padding(10)
@@ -82,6 +86,7 @@ struct LogInScreen: View {
             .frame(maxWidth: .infinity)
             .background(.blue)
         }
+        .background(Color.black)
         
     }
     func login(){

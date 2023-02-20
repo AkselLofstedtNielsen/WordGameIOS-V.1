@@ -87,10 +87,7 @@ class SinglePlayerVM : ObservableObject {
     func addWordToGame(){
         let check: Double = timePlayed .truncatingRemainder(dividingBy: 2.0)
         let checkRounded = check.roundToDecimal(1)
-        print(": \(checkRounded)")
         if  checkRounded == 0.1{
-            list.addRandomWord()
-        }else if checkRounded == 1.1{
             list.addRandomWord()
         }
     }

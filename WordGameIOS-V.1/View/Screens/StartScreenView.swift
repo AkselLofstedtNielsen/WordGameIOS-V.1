@@ -30,45 +30,58 @@ struct StartScreenView: View {
             ZStack{
                 VStack{
                     HStack{
+                        Spacer()
+                        
                         Button(action:{
                             logInShow.toggle()
                         }){
                             Image(systemName: "person.circle")
+                                .frame(width: 35.0,height: 35.0)
+                                .foregroundColor(.white)
+                                
                         }
-                        .imageScale(.medium)
+                        .background(Color.purple)
                         .buttonStyle(.bordered)
                         
-                        Spacer()
-                        
-                        Text("TYPE FIGHT")
-                            .bold()
-                            .foregroundColor(.blue)
-                        
-                        Spacer()
-                        
+                       
+                
                     }//_Hstack
+                    Spacer()
+                    
+                    Text("TYPE FIGHT")
+                        .font(.system(size: 30))
+                        .bold()
+                        .foregroundColor(.white)
+                    
                     Spacer()
                     
                     Button(action:{
                         multiplayerShow.toggle()
                     }){
                         Text("Multiplayer")
+                            .foregroundColor(.white)
                     }
                     .buttonStyle(.bordered)
+                    .background(Color.purple)
                     
                     Spacer()
                     
 
-                    Text("Single player")
+                    Text("SINGLE PLAYER")
+                        .foregroundColor(.white)
                     
                        HStack{
+                           Spacer()
+                           
                            Button(action:{
                                typingVM.gameSpeed = 9.0
                                singlePlayerShow.toggle()
                            }){
-                               Text("Easy Mode")
+                               Text("Easy")
+                                   .foregroundColor(.white)
                            }
                            .buttonStyle(.bordered)
+                           .background(Color.purple)
                            
                            Spacer()
                            
@@ -76,9 +89,11 @@ struct StartScreenView: View {
                                typingVM.gameSpeed = 6.5
                                singlePlayerShow.toggle()
                            }){
-                               Text("Medium Mode")
+                               Text("Medium")
+                                   .foregroundColor(.white)
                            }
                            .buttonStyle(.bordered)
+                           .background(Color.purple)
                            
                            Spacer()
                            
@@ -86,9 +101,13 @@ struct StartScreenView: View {
                                typingVM.gameSpeed = 4.0
                                singlePlayerShow.toggle()
                            }){
-                               Text("Hard Mode")
+                               Text("Hard")
+                                   .foregroundColor(.white)
                            }
                            .buttonStyle(.bordered)
+                           .background(Color.purple)
+                           
+                           Spacer()
                      
                      
                        }//_Hstack
@@ -100,9 +119,10 @@ struct StartScreenView: View {
                     print("User email\(user?.email)")
                 })
             }
+            .background(Color.black)
         }
-
     }
+        
 }
 
 struct StartScreenView_Previews: PreviewProvider {

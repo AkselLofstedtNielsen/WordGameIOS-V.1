@@ -32,7 +32,7 @@ class MultiplayerVM : ObservableObject{
     @Published var id = UUID()
     @Published var letterPosition = 1
     
-    @Published var list = WordList()
+    @Published var list = MultiplayerWordList()
     
     @Published var gameSpeed : Double = 9.0
     
@@ -67,7 +67,7 @@ class MultiplayerVM : ObservableObject{
                         for word in list.typed{
                             print("\(word.word) + \(word.dead)")
                         }
-                        gameSpeed -= 2.0
+                        gameSpeed -= 1.0
                         restartGame()
                     }
                     
@@ -100,7 +100,8 @@ class MultiplayerVM : ObservableObject{
         let checkRounded = check.roundToDecimal(1)
         
         if  checkRounded == 0.1{
-            
+            list.addRandomWord()
+        }else if checkRounded == 1.1{
             list.addRandomWord()
         }
     }

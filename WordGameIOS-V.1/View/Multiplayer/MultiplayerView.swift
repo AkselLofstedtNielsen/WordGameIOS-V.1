@@ -26,18 +26,18 @@ struct MultiplayerView: View {
                         multiplayerShow.toggle()
                     }){
                         Text("Back")
+                            .foregroundColor(.white)
                     }
                     .buttonStyle(.bordered)
-                    
-                    Spacer()
-                    
-                    Text("Multiplayer")
-                        .bold()
-                        .foregroundColor(.green)
+                    .background(Color.purple)
                     
                     Spacer()
                 }
                 
+                Text("Multiplayer")
+                    .font(.system(size: 30))
+                    .bold()
+                    .foregroundColor(.purple)
                 
                 Spacer()
                 
@@ -48,23 +48,32 @@ struct MultiplayerView: View {
                     newGame.toggle()
                 }){
                     Text("Create new game")
+                        .foregroundColor(.white)
                 }
                 .buttonStyle(.bordered)
+                .background(Color.purple)
                 
                 Spacer()
                 
                 TextField("Enter game room key", text: $gameRoom)
                     .textFieldStyle(.roundedBorder)
+                    .background(Color.purple)
+                    .foregroundColor(.purple)
+                
                 Button(action:{
                     vm.gameId = gameRoom
                     vm.joinGame()
                     newGame.toggle()
                 }){
                     Text("Join")
+                        .foregroundColor(.white)
                 }
                 .buttonStyle(.bordered)
+                .background(Color.purple)
                 Spacer()
             }
+            .background(Color.black)
+            
         }
     }
 }
