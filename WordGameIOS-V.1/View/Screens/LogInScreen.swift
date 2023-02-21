@@ -100,16 +100,24 @@ struct LogInScreen: View {
             }
         }
     }
+
     func createUser(){
-        Auth.auth().createUser(withEmail: email, password: password){ (result, error) in
-            if error != nil{
-                print(error?.localizedDescription ?? "")
+        let authUser = Auth.auth().currentUser
+        let credential = EmailAuthProvider.credential(withEmail: email, password: password)
+        
+        authUser?.link(with: credential) {(result, error ) in
+            if error != nil {
+                print("error = \(error!.localizedDescription)")
             }else{
+                let fireUser = result?.user
+                print("User converted")
                 logInShow.toggle()
-                print("User created")
             }
+            
+            
+                
         }
-    }
-    
-    
+          
+            
+        }
 }

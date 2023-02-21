@@ -14,7 +14,7 @@ struct typeHereAnimation: View{
     var body: some View {
         VStack{
             VStack(spacing: 5){
-                Text("Type to start")
+                Text("Tap when ready")
                     .foregroundColor(.white)
                 Image(systemName: "arrow.down")
                     .foregroundColor(.white)

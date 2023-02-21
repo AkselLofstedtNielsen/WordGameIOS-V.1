@@ -10,7 +10,7 @@ import Firebase
 
 @main
 struct WordGameIOS_V_1App: App {
-    @StateObject var typingVM = SinglePlayerVM()
+//    @StateObject var typingVM = SinglePlayerVM()
     
     init(){
         FirebaseApp.configure()
@@ -19,7 +19,7 @@ struct WordGameIOS_V_1App: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(typingVM)
+//                .environmentObject(typingVM)
         }
     }
 }
