@@ -17,6 +17,7 @@
 		5C8B58CF297FF3B10021A556 /* TypingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8B58CE297FF3B10021A556 /* TypingView.swift */; };
 		5C8B58D5297FF3F70021A556 /* SinglePlayerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8B58D4297FF3F70021A556 /* SinglePlayerVM.swift */; };
 		5C8B58D9297FFCE30021A556 /* WordList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8B58D8297FFCE30021A556 /* WordList.swift */; };
+		5C92331D29A4DA06008A4BE9 /* MultiplayerFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C92331C29A4DA06008A4BE9 /* MultiplayerFirebaseManager.swift */; };
 		5C96A35E29A3D4FA00CAED0A /* MultiplayerWordList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C96A35D29A3D4FA00CAED0A /* MultiplayerWordList.swift */; };
 		5C97456C2988136000EBE317 /* TypeHereAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C97456B2988136000EBE317 /* TypeHereAnimation.swift */; };
 		5C97456E2988139A00EBE317 /* HighlightedLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C97456D2988139A00EBE317 /* HighlightedLetter.swift */; };
@@ -76,6 +77,7 @@
 		5C8B58CE297FF3B10021A556 /* TypingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypingView.swift; sourceTree = "<group>"; };
 		5C8B58D4297FF3F70021A556 /* SinglePlayerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePlayerVM.swift; sourceTree = "<group>"; };
 		5C8B58D8297FFCE30021A556 /* WordList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordList.swift; sourceTree = "<group>"; };
+		5C92331C29A4DA06008A4BE9 /* MultiplayerFirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerFirebaseManager.swift; sourceTree = "<group>"; };
 		5C96A35D29A3D4FA00CAED0A /* MultiplayerWordList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerWordList.swift; sourceTree = "<group>"; };
 		5C97456B2988136000EBE317 /* TypeHereAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeHereAnimation.swift; sourceTree = "<group>"; };
 		5C97456D2988139A00EBE317 /* HighlightedLetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightedLetter.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				5C9E9D03296C3F940072ABE9 /* Word.swift */,
 				5C97460929925C2100EBE317 /* FirebaseTestWord.swift */,
 				5C97460729925BF100EBE317 /* FirebaseManager.swift */,
+				5C92331C29A4DA06008A4BE9 /* MultiplayerFirebaseManager.swift */,
 				5C9745B6298D2D8D00EBE317 /* Extension.swift */,
 				5C8B58D8297FFCE30021A556 /* WordList.swift */,
 				5C96A35D29A3D4FA00CAED0A /* MultiplayerWordList.swift */,
@@ -414,6 +417,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C92331D29A4DA06008A4BE9 /* MultiplayerFirebaseManager.swift in Sources */,
 				5C96A35E29A3D4FA00CAED0A /* MultiplayerWordList.swift in Sources */,
 				5C97460829925BF100EBE317 /* FirebaseManager.swift in Sources */,
 				5C974574298AB75000EBE317 /* TopBarView.swift in Sources */,

@@ -8,7 +8,7 @@
 import Foundation
 
 class MultiplayerWordList: ObservableObject{
-    var fbManager = FirestoreManager()
+    var fbManager = MultiplayerFirebaseManager()
     
     @Published var words : [Word] = []
     
@@ -21,7 +21,7 @@ class MultiplayerWordList: ObservableObject{
         if fbManager.words.isEmpty{
             gameWords.append(Word(word: "NOFIREBASEWORDS", xPos: 0, yPos: 0))
         }else{
-            var multiList = fbManager.words.prefix(10)
+            let multiList = fbManager.words.prefix(10)
             for word in multiList{
                 gameWords.append(Word(word: word.word, xPos: 0, yPos: 0))
             }

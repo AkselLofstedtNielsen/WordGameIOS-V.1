@@ -1,0 +1,45 @@
+//
+//  MultiplayerFirebaseManager.swift
+//  WordGameIOS-V.1
+//
+//  Created by Aksel Nielsen on 2023-02-21.
+//
+
+import Foundation
+
+import Foundation
+import Firebase
+
+class MultiplayerFirebaseManager: ObservableObject{
+    @Published var words = [FirebaseWord]()
+    let db = Firestore.firestore()
+    
+    init(){
+        getMultiplayerList()
+        
+    }
+    
+    func getMultiplayerList(){
+        db.collection("MultiplayerWords").addSnapshotListener{ snapshot, err in
+            guard let snapshot = snapshot else{return}
+            
+            if let err = err{
+                print("Err = \(err)")
+            }else{
+                self.words.removeAll()
+                for document in snapshot.documents{
+                    let result = Result{
+                        try document.data(as: FirebaseWord.self)
+                    }
+                    switch result{
+                    case .success(let word):
+                        self.words.append(word)
+                    case.failure(let error):
+                        print("Err: :\(error)")
+                    }
+                }
+            }
+            
+        }
+    }
+}
