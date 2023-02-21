@@ -56,20 +56,10 @@ class MultiplayerVM : ObservableObject{
                 if letterPosition == wordInLetters.count - 1{
                     print("Ord skrivet")
                     resetWord()
-                    list.addToTyped(inputWord: list.words[index])
                     list.words.remove(at: index)
                     increasePlayerScore()
+                    checkLevelUp()
                     
-                    if list.gameWords.isEmpty && list.words.isEmpty{
-                        
-                        //TODO: levelup, gamespeed snabbare varje gång listorna är tomma
-                        
-                        for word in list.typed{
-                            print("\(word.word) + \(word.dead)")
-                        }
-                        gameSpeed -= 1.0
-                        restartGame()
-                    }
                     
                 }else{
                     print("Rätt")
@@ -94,6 +84,15 @@ class MultiplayerVM : ObservableObject{
             }
         }
         
+    }
+    func checkLevelUp(){
+        if list.gameWords.isEmpty && list.words.isEmpty{
+            
+            //levelup, gamespeed snabbare varje gång listorna är tomma
+        
+            gameSpeed -= 1.0
+            restartGame()
+        }
     }
     func addWordToGame(){
         let check: Double = timePlayed .truncatingRemainder(dividingBy: 2.0)
@@ -287,9 +286,6 @@ class MultiplayerVM : ObservableObject{
                 ref.updateData(["p\(self.player)Ready" : true])
             }
         })
-    }
-    func checkIfReady(){
-        
     }
 }
 

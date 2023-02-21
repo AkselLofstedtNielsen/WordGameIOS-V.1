@@ -29,13 +29,7 @@ struct TopBarView: View {
                             typingVM.addWordToGame()
                         }
                     }
-            }else{
-                Text("\(typingVM.WPS): Words per second")
-                    .foregroundColor(.purple)
-                    .bold()
             }
-            
-            Spacer()
             
         }
     }

@@ -14,8 +14,6 @@ class MultiplayerWordList: ObservableObject{
     
     @Published var gameWords : [Word] = []
     
-    @Published var typed : [Word] = []
-    
 
     func fillFromFB(){
         if fbManager.words.isEmpty{
@@ -45,12 +43,8 @@ class MultiplayerWordList: ObservableObject{
     func addToWords(word: Word){
         words.append(word)
     }
-    func addToTyped(inputWord: Word){
-        typed.append(inputWord)
-    }
     func clearAll(){
         words.removeAll()
-        typed.removeAll()
         gameWords.removeAll()
     }
 

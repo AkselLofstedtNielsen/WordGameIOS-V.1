@@ -22,12 +22,14 @@ struct MultiplayerWordView : View {
             .onAppear(perform: {
                 animate.toggle()
                 DispatchQueue.main.asyncAfter(deadline: .now() + vm.gameSpeed) {
-                    let contains = vm.list.words.contains { contain in
+                    let containsInWords = vm.list.words.contains { contain in
                         return contain.word == word.word
                     }
-                    if contains{
+                    if containsInWords{
                         vm.list.words.removeAll(where: {$0.id == word.id})
+                        vm.list.gameWords.removeAll(where: {$0.id == word.id})
                         vm.decreasePlayerLife()
+                        vm.checkLevelUp()
                     }
                 }
             })

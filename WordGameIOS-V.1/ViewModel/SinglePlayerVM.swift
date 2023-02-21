@@ -46,18 +46,13 @@ class SinglePlayerVM : ObservableObject {
                 if letterPosition == wordInLetters.count - 1{
                     print("Ord skrivet")
                     resetWord()
-                    list.addToTyped(inputWord: list.words[index])
                     list.words.remove(at: index)
                     
                     if list.gameWords.isEmpty && list.words.isEmpty{
                     
                         gameWon = true
-                        WPS = getWPS()
                         stopGame()
-                        
-                        for word in list.typed{
-                            print("\(word.word) + \(word.dead)")
-                        }
+  
                     }
                     
                 }else{
@@ -98,11 +93,6 @@ class SinglePlayerVM : ObservableObject {
           wordFound = false
       }
       
-      func getWPS() -> Double {
-          return Double(list.typed.count) / timePlayed
-          
-      }
-
       func stopGame() {
           timePlayed = 0
           isTimerRunning = false
