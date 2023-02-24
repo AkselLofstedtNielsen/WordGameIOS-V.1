@@ -8,7 +8,6 @@
 import SwiftUI
 import FirebaseAuth
 
-//TODO: User games, when one user starts a game and plays against a user on the same account the next game that player starts will have user ready as true instead of false.
 
 struct MultiplayerView: View {
     @ObservedObject var vm : MultiplayerVM
