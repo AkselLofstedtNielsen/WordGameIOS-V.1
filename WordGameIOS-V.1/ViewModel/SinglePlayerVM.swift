@@ -12,6 +12,8 @@ class SinglePlayerVM : ObservableObject {
     @Published var playerLife : Int = 3
 
     @Published var timePlayed = 0.0
+
+    
     @Published var isTimerRunning = false
     @Published var gameRunning = false
     @Published var WPS : Double = 0.0

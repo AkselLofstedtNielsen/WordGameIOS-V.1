@@ -8,25 +8,29 @@
 import SwiftUI
 
 struct TopBarView: View {
-    @ObservedObject var typingVM: SinglePlayerVM
+    @ObservedObject var vm: SinglePlayerVM
     @State var timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
+    
+    var stringTime : String{
+        return String(format: "%.1f", vm.timePlayed)
+    }
     
     var body: some View {
         HStack{
            
-            if typingVM.gameRunning{
-                ForEach(0..<typingVM.playerLife, id: \.self){_ in
+            if vm.gameRunning{
+                ForEach(0..<vm.playerLife, id: \.self){_ in
                     Image(systemName: "heart")
                         .foregroundColor(.purple)
                 }
                 Spacer()
-                Text("Time: \(typingVM.timePlayed)")
+                Text("Time: \(stringTime)")
                     .bold()
                     .foregroundColor(.purple)
                     .onReceive(timer){ _ in
-                        if typingVM.isTimerRunning{
-                            typingVM.timePlayed += 0.1
-                            typingVM.addWordToGame()
+                        if vm.isTimerRunning{
+                            vm.timePlayed += 0.1
+                            vm.addWordToGame()
                         }
                     }
             }

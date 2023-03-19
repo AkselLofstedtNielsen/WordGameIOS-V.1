@@ -11,11 +11,15 @@ struct MultiplayerTopBarView: View {
     @ObservedObject var vm : MultiplayerVM
     @State var timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
     
+    var stringTime : String{
+        return String(format: "%.1f", vm.timePlayed)
+    }
+    
     var body: some View {
         VStack{
             HStack{
                 if vm.gameRunning{
-                    Text("Time: \(vm.timePlayed)")
+                    Text("Time: \(stringTime)")
                         .bold()
                         .foregroundColor(.purple)
                         .onReceive(timer){ _ in

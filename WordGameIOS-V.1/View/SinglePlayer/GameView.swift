@@ -14,7 +14,7 @@ struct GameView: View {
     var body: some View {
         ZStack{
             VStack{
-                TopBarView(typingVM: vm)
+                TopBarView(vm: vm)
                 Spacer()
                     .alert("Good job!" , isPresented: $vm.gameWon){
                         Button(action: {
